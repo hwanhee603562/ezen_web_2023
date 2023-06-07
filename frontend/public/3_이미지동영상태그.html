@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<!--
+		<audio controls> 
+			<source src="파일명"/>
+		</audio>
+		
+		<video controls>
+			<source src="파일명"/>
+		</video>		
+		
+		<img src="파일명"/>
+			절대경로 : 모든 경로
+			상대경로 : 현재 문서 (위치) 기준으로 상대적인 경로
+				./ : 현재경로 (생략가능)
+				../ : 상위 이동
+				
+				1. 만약에 같은 폴더명이면 : ./파일명 	또는 파일명
+				2. 만약에 상위 폴더에 존재하면 : ../파일명
+				3. 만약에 상상위 폴더에 존재하면 : ../../파일명
+				4. 만약에 상위 폴더내 하위폴더에 존재하면 : ../폴더명/파일명
+				
+				
+	 -->
+	 <h6> 절대경로 --> </h6>
+	 	<img src="C:\Users\504\eclipse-workspace\frontend\public\오공.jpg">
+	 	
+	 <h6> 상대경로 : 현재문서와 사진이 같은 문서일 때 </h6>
+	 	<img src="오공.jpg"/>
+	 	<!-- './'는 생략가능 -->
+	 	
+	 <h6> 상대경로 : 현재문서와 같은 폴더내 사진일 때 </h6>
+	 	<img src="./이미지/오공.jpg"/>
+	 	
+	 <h6> 상대경로 : 현재문서의 상위 폴더내 사진일 때 </h6>
+	 	<img src="../img/오공.jpg"/>
+	 	
+	 	
+	 <audio controls>
+	 	<source src="소리.mp3">
+	 </audio>
+
+	<video controls>
+		<source src="비디오.mp4">
+	</video>
+	
+	<!-- 유튜브 URL퍼가기 -->
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/n6UAm4V6p3s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+	<!-- 지도 URL퍼가기 -->
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3173.3899944870077!2d126.85119457637207!3d37.309588738819386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b6f26eca4e801%3A0xcc760a7a473e93bf!2z7ZWc64yA7JWe7Jet!5e0!3m2!1sko!2skr!4v1686127381865!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	
+</body>
+</html>

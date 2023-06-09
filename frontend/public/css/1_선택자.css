@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+/* 모든 곳 적용 */
+*{ color : blue; }
+
+/* h4 태그 적용 */
+h4{ color : yellow; }
+
+/* text1 클래스에 적용 */
+.text1{ color : green; }
+
+/* text2 id에 적용 */
+#text2{ color : red; }

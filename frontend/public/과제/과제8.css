@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.h3{
+	text-decoration : underline;
+}
+
+.log{
+	
+}
+
+.box1{
+	border : solid 1px #E4E4E4;
+	width : 200px;
+	height : 170px;
+}
+.box2{
+	border : solid 1px #FEE500;
+	background-color : #FEE500;
+	margin: 0 auto;
+	padding: 0 auto;
+	text-align : center;
+}
+.box3{
+	border : solid 1px #F0F0F0;
+	background-color : #F0F0F0; 
+	margin: 0 auto;
+	padding: 0 auto;
+	text-align : center;
+}

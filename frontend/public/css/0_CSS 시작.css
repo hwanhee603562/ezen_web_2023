@@ -27,6 +27,11 @@ h5{ color: green;}
 	height		박스 세로 사이즈
 	display		박스 배치 방법	[inline, block, inline-block, none]
 	background-color	박스 배경색
+	
+	[박스 배치]
+	display : flex 	박스 가로 배치
+						[ex)div 하위요소, 즉 종속관계에 있는 관계에서
+						부모 div에 border 1px 생성 후 위 flex입력시]
 
 	list-style-type : none;	글머리 제거
 				(ul의 li 또는 ol의 li와 같이 앞에 붙은 글머리 제거)

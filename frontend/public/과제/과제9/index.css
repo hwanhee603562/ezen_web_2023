@@ -19,8 +19,9 @@ li{ list-style-type: none; }
 	display: flex;
 }
 .a_h_rightmenu li{
-	margin: 22px;
-	font-size: 18px;
+	margin: 20px;
+	font-size: 22px;
+	font-weight: bold;
 }
 
 /* main 이미지 */
@@ -33,18 +34,34 @@ li{ list-style-type: none; }
 	margin: 30px 0px;
 }
 /* 본문상단 */
-#a_b_topmenu{
-	border: solid 1px red;
+#a_c_topmenu{
 	margin: 0 auto;
 	width: 1200px;
-	height: 310px;
+	height: 200px;
 	display: flex;
-	justify-content: space-between;;
+	justify-content: space-between;
+	padding-top: 100px;
 }
 
-.a_h_leftmenu{
-	border: solid 1px green;
+.a_c_leftmenu{
+	width: 590px;
+	display: flex;
+	
 }
-.a_h_rightmenu{
-	border: solid 1px blue;
+.a_c_rightmenu{
+	width: 590px;
+	display: flex;
 }
+.a_c_img{
+	width:100px;
+	height: 100px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+#a_c_topmenu p{
+	margin-top: 20px;
+}
+
+
+
+

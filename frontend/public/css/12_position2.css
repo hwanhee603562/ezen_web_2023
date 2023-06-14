@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+.parent{
+	width: 700px; height: 500px;
+	background-color: skyblue;
+	margin: 0 auto;
+	position: relative;
+	/* 부모요소에 position:relative 기능을 넣지 않으면
+	   자식요소들이 부모요소들을 따라가지 않음 */
+}
+.box{
+	width: 100px; height: 70px;
+	background-color: yellow;
+	border-radius: 15px;
+	text-align: center;
+	position: absolute;
+}
+
+.box1{
+	left: 300px; top: 100px;
+}
+.box2{
+	left: 150px; top: 170px;
+}
+.box3{
+	left: 450px; top: 170px;
+}
+
+.box4{
+	left: 150px; top: 310px;
+}
+.box5{
+	left: 450px; top: 310px;
+}
+.box6{
+	left:300px; top: 380px;
+}
+/*--------------------------------------*/
+
+#header{
+	display: flex;
+	flex-direction: row; /* 가로배치 기본값 : 생략가능 */
+	background-color: white;
+	border-bottom: 2px solid #eeeeee;
+	position: sticky;
+	/* 스크롤 이동했을 때 위치 고정 */
+	top: 0px;	/* 가장 위에 */
+	/* 통상 header에서 사용하며 값을 0으로 고정 */
+	z-index: 1; /* 높을수록 앞에 배치*/
+	/* 다른 요소와 위치가 겹쳤을때 = 우선순위 = 기본값=0 */
+}
+.h_menu li{
+	display: inline-block;
+}
+
+/* popup */
+.popup{
+	width: 200px; height: 200px;
+	border: 2px solid red;
+	background-color: white;
+	position: fixed;
+	right: 5px; bottom: 10px;
+	z-index: 2;
+	/* 메뉴 vs 본문 vs 팝업 겹쳤을 때 우선순위 */
+	/* 우선순위가 헤더의 1보다 높기에 우선됨 */
+}
+

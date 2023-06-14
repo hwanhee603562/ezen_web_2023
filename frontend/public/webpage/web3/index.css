@@ -1,0 +1,150 @@
+@charset "UTF-8";
+
+
+/* 전체 배경색 */
+body{
+	background-color: #F5F6F7;
+}
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: "맑은 고딕" }
+/* a태그의 기본값 수정 */
+a{
+	color: black;
+	text-decoration: none;
+}
+/*페이지 구역*/
+#wrap{
+	width: 460px; margin: 0 auto;
+}
+/* 헤더로고 이미지 세로크기 변경*/
+#header .h_logo img{
+	height: 50px;
+	text-align: center;
+	margin: 50px 0px;
+}
+/* 헤더 로고 구역 정렬과 여백 설정 */
+#header .h_logo{
+	text-align: center;
+	margin: 50px 0px;
+}
+/*--------------------------------*/
+.signup_input{
+	border: 1px solid #DEDEDE;
+	background-color: white;
+	padding: 10px;
+	display: flex; 
+	flex-wrap: nowrap;
+	/* nowrap(기본값): 자식요소들의 사이즈가 컸을때 줄바꿈x
+		wrap: 줄바꿈함*/
+	align-items: center;
+	margin: 5px 0px 10px 0px;
+	
+}
+.input_id{
+	border: none;
+	width: 100%;
+	height: 30px;
+}
+
+
+/* 포커스: 커서 들어왔을때 액션 속성*/
+*:focus{
+	outline: none;
+	/* none하기 전 검은색 테두리가 생겼음 */
+}
+.signup_at{
+	color: #AEAEAE;
+}
+
+/* 네이버 아이콘 배경으로 넣기 */
+.signup_icon{
+	background-image: url("https://static.nid.naver.com/images/ui/join/m_icon_pw_step.png");
+	width: 25px; height: 25px;
+	/* 해당 url이미지 사이즈 */
+	background-size: 120px 75px;
+	/* background-position-x: 10px; 
+		배경 위치 x좌표*/
+	/* background-position-y: 10px;
+	 	배경 위치 y좌표*/
+	 	/* 배경위치좌표설정은 단번에 조정하는 것이 아니라
+	 	   페이지상 개발자도구(F12)에서 x, y를 방향키로 조절하며 
+	 	   맞추어 본 후 css창에 입력해야함*/
+}
+
+/*생년월일 구역*/
+.birthbox{
+	display: flex;
+}
+/* 월 구역 */
+.birthm{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.birthy, .birthm, .birthd{
+	width: 120px;
+	/* flex로 인해 자식요소의 크기가 가변적일 경우
+	   길이를 별도 지정해주어야한다 */
+}
+
+.info{
+	font-size: 10px;
+	color: #B3C5BF;
+}
+
+.phonebox{
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0px;
+}
+/* 인증버튼 */
+.btn_auth{
+	background-color: #03C75A;
+	border: none; color: white;
+	width: 120px;
+	height: 51px;
+	font-weight: bold;
+	margin: 5px 0px 5px 5px;
+}
+.input_phone{
+	width: 300px;
+}
+.auth_input{
+	background-color: #F5F6F7;
+}
+
+/* 가입하기 버튼 */
+.btn_signup{
+	background-color: #03C75A;
+	border: none; color: white;
+	width: 100%; height: 50px;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 30px 0px;
+}
+
+/* 푸터 상단 링크 구역 */
+#footer{
+	text-align: center;
+}
+.ft_top{
+	font-size: 8px;
+}
+.ft_sub{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 5px;
+}
+.ft_sub img{
+	height: 10px;
+	padding: 10px;
+}
+.aline{
+	font-size: 5px;
+	color: #e8e8e8;
+}
+
+
+

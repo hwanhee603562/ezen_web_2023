@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+/* css 기본값 제거*/
+*{ margin: 0px; padding: 0px; }/* 여백 제거 */
+li{ list-style-type: none; }/*글머리 제거*/
+
+/* 웹 폰트 가져오기 : 눈누 */
+@font-face {
+    font-family: 'KimjungchulGothic-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulGothic-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+#header{
+	width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+.logo_img img{
+	width : 100%;
+}
+
+/* header */
+.top_menu{
+	font-size: 14px;
+	text-align: right;
+	margin-bottom: 15px;
+}
+
+.main_menu li{
+	display: inline-block;
+	margin-left: 100px;
+	font-family: 'KimjungchulGothic-Bold';
+	font-size: 20px;
+}
+
+
+
+/* 대표이미지 */
+#main_img{
+	width:100%; height:300px;
+	background-image: url("img/main.png");
+	/* 배경이미지 */
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 30px 0px;
+
+}
+
+/* 본문 */
+#content{
+	width: 1200px; margin: 0 auto;
+	display: flex; justify-content: space-between;
+}
+/* 사이드바 */
+.sidebar{
+	width: 250px;
+}
+.sidebar h3{
+	background-color: #0CA9A3;
+	color: white;
+	font-size: 20px;
+	padding: 15px;
+}
+.sidebar h4{
+	line-height: 150%; /* 줄간격 */
+	padding: 15px;
+}
+.sidebar .search_input{
+	width: 170px; height: 30px; padding-left: 10px;
+}
+.sidebar .search_btn{
+	margin-left: 5px; padding: 6px 10px;
+}
+.sidebar h4{
+	border-top: solid 1px black;
+	border-bottom: solid 1px #eeeeee;
+	margin-top: 20px; padding: 15px;
+	font-size: 15px;
+}
+.sidebar li{
+	padding: 10px 15px;
+}
+
+/* 메인본문 */
+.main_content{
+	width: 930px;
+	display: flex;
+	justify-content: space-between;
+	
+}
+
+/* 왼쪽내용 */
+.left_content{
+	width: 460px;
+}
+.main_content h3{
+	border-bottom: solid 2px black;
+	padding-bottom: 10px;
+}
+.board{
+	margin: 10px 0px 50px 0px;
+}
+.item{
+	display: flex;
+	justify-content: space-between;
+	padding: 7px 0px;
+}
+
+/*오른쪽내용*/
+.right_content{
+	width: 460px;
+}
+.product_list{
+	display: flex;
+	flex-wrap: wrap;
+	/* 자식요소들이 사이즈 over시 자동 줄바꿈 */
+}
+.product{
+	width: 200px;
+	margin: 20px 15px;
+}
+
+/*푸터*/
+#footer{
+	background-color: #05354E;
+	width: 100%;
+	height:20%;
+	margin-top: 20px;
+}
+#ft_box{
+	width: 1200px;
+	margin: 0 auto;
+	color: white;
+	padding: 30px;
+}
+.top_ft li{
+	display: inline-block;
+	margin-right: 30px;
+
+}
+.bottom_ft{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px; 
+}
+.bottom_ft li{
+	margin-bottom: 10px;
+}
+

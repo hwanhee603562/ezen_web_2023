@@ -1,0 +1,214 @@
+@charset "UTF-8";
+*{padding: 0px; margin: 0px;}
+li{ list-style-type: none; }
+
+#a_header{
+	width: 1200px;
+	margin: 0 auto;
+	justify-content: space-between;;
+	display: flex;
+}
+#a_header a{
+	text-decoration-line: none;
+	color: black;
+}
+.a_logo{
+	margin-top: 15px;
+}
+.a_h_rightmenu{
+	display: flex;
+}
+.a_h_rightmenu li{
+	margin: 20px;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+/* main 이미지 */
+#a_h_img{
+	width:1900px;
+	height: 421px;
+	position: relative;
+	margin: 0 auto;
+	
+}
+#a_main_img{
+	width:100%; height:420px;
+	background-image: url("img/sub_reservation.jpg");
+	/* 배경이미지 */
+	background-repeat: no-repeat;
+	background-position: center;
+	position: absolute;
+	z-index: 1; /* 높을수록 앞에 배치*/
+}
+.a_imgleng{
+	color: white;
+	z-index: 2; /* 높을수록 앞에 배치*/
+	position: absolute;
+	text-align: center;
+	left: 44%;
+	bottom: 43%;
+}
+
+
+ 
+.b_Main_Content
+{
+	width: 1200px;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto; 
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.b_Content_Left
+{
+	width: 650px;
+	height: 580px;
+	background-color: #FCF9EA;   /* 색 조정 */
+	text-align: center;
+	margin-right: 30px; 
+	margin-left: 50px;
+}
+.b_Content_Left h5 , .b_Select_Month
+{
+	margin: 10px 0px;
+}
+.b_Content_Left h5 
+{
+	margin-top: 30px;
+}
+.b_Calendar 
+{
+	border: none;
+	margin: 0 auto;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+.b_Calendar th , .b_Calendar td
+{
+	background-color: white;
+	border: 3px solid black;
+}
+.b_Calendar th{width: 80px;}
+.b_Calendar td
+{
+	width: 60px;
+	height: 80px;
+	vertical-align: top;
+    text-align: left;
+    padding-left: 3px;
+    padding-top: 3px;
+	
+}
+.b_Top_Week
+{
+	height: 20px;
+}
+
+.b_Day_Off
+{
+	color: red;
+}
+
+
+
+
+
+
+
+
+
+.b_Footer
+{
+	
+	height: 130px;
+	background-color: #292C32;
+	align-items: center;
+	padding-top: 15px;
+}
+.b_Footer_Content
+{
+	width: 1100px;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+.b_Footer_Item
+{
+	
+	height : 100px;
+	color: white;
+	padding-top: 20px;
+	/*background-color: white;*/
+	
+}
+
+.b_Item1
+{
+	width: 200px;
+}
+.b_Item1 h4
+{
+	font-size: 14px;
+	margin-bottom: 13px;
+}
+.b_Item1 h3
+{
+	font-size: 20px;
+}
+
+.b_Item2
+{
+	width: 350px;
+}
+
+.b_Item2 .b_Item2_text1
+{
+	font-size: 8px;
+	margin-bottom: 13px;
+}
+.b_Item2 .b_Item2_text2
+{
+	font-size: 8px
+}
+.b_Item3
+{
+	width: 100px;
+	justify-content: space-between;
+}
+.b_Item3 img
+{
+	width: 20px;
+	height: 20px;
+}
+
+
+
+
+.b_Right_Content{
+	width:400px;
+	margin-left: 20px;
+}
+
+.b_Right_Item h3
+{
+	border-left: 8px solid gray;
+	padding-left: 9px;
+	margin-top: 20px;
+}
+
+.b_Right_Item li
+{
+	list-style-type: none;
+	font-size: 14px;
+	margin: 8px;
+}
+
+.b_Add_Info
+{
+	width: 220px;
+	color: green;
+	font-size: 12px;
+}
+

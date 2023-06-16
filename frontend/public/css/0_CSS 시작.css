@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+h5{ color: green;}
+
+/*	css 속성
+
+	[글꼴관련]
+	font-family	폰트명
+	font-size		폰트크기[px]
+	font-style italic	폰트 기울기
+	font-weight bold	폰트 굵기
+	color		폰트 색상
+	word-spacing	어간[px]
+	letter-spacing	자간[px]
+	line-height	줄간격[%]
+	text-align		텍스트 가로 정렬	[center, left, right]
+	text-decoration	텍스트 밑줄 윗줄 취소선
+	text-shadow	텍스트 그림자
+	
+	[박스/구역 관련]
+	border		박스 테두리
+	border-radius	박스 둥근모서리
+	box-shadow	박스 그림자
+	padding		안쪽 여백		[margin: 0 auto; 박스 가로가운데 정렬]
+	margin		바깥 여백
+	width		박스 가로 사이즈
+	height		박스 세로 사이즈
+	display		박스 배치 방법	[inline, block, inline-block, none]
+	background-color	박스 배경색
+	
+	[박스 배치]
+	display : flex 	박스 가로 배치
+						[ex)div 하위요소, 즉 종속관계에 있는 관계에서
+						부모 div에 border 1px 생성 후 위 flex입력시]
+
+	list-style-type : none;	글머리 제거
+				(ul의 li 또는 ol의 li와 같이 앞에 붙은 글머리 제거)
+*/

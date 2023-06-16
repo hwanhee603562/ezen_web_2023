@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.s1{
+	display: inline;
+	color : orange;
+}
+.s1-1{
+	display: inline;
+}
+.s2-1{
+	display: inline;
+	color : orange;
+}
+
+.s2{
+	border : solid 1px grey;
+	background-color: #0F6878;
+	padding : 25px;
+	color : white;
+	margin-top : 20px;
+	margin-bottom : 20px;
+	line-height : 170%;
+}
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<!-- 
+		<input> : 입력상자
+		<selcet> : 목록상자
+		<textarea> : 긴 글 입력
+	 -->
+	 
+	 <form><!-- 
+	 			input태그는 form안에서 사용
+	 			form범위에서 java에게 데이터를 전송 -->
+	 			
+	 	<!--
+	 	value : input값 대입(웹상 수정가능)
+	 	placeholder : 가이드라인 택스트
+	 	fieldset : 입력상자들을 그룹화
+	 	legend : 그룹 이름
+	 	readonly : value값을 수정불가토록함
+	 	disabled : value값을 사용금지토록함
+	 	autofocus : 포커스[커서] 위치가 해당 input으로 이동
+	 	maxlength : 입력한 숫자만큼 최대문자길이 지정
+
+	 	
+	 	-->
+	 	
+	 	<!--	입력태그는 타입명 + 속성으로 사용가능하며,
+	 			한 타입에 속성은 여러 개 사용할 수 있다
+	 	 -->
+	 	
+	 	
+	 	
+	 	 <fieldset>
+	 	 	 <legend> 그룹 제목 </legend>
+		 	 <input type="text" placeholder="자기소개"> <br/>
+			 입력상자 : <input value="유재석" readonly="readonly">	<br/>
+			 텍스트 : <input type="text" value="인사과" disabled="disabled"><br/>
+			 패스워드 : <input type="password" autofocus="autofocus">		<br/>
+			 이메일 : <input type="email" maxlength="5">			<br/>
+		 </fieldset>
+		 
+		 원형체크버튼[단일선택] : <!-- name값에 들어가야하는 이름(변수)이 동일해야함 -->
+		 	<input type="radio" name="confirm">예		
+		 	<input type="radio" name="confirm">아니오
+		 								<br/>
+		 네모체크버튼[복수선택] :
+		 	<input type="checkbox">뉴스	
+		 	<input type="checkbox">드라마
+		 
+		 								<br/>
+		 첨부파일 : <!-- multiple속성 사용시 여러 개 첨부파일 가능-->
+		 	<input type="file">		
+		 	<input type="file" multiple="multiple">
+		 
+		 								<br/>
+		 								
+		 <hr/><!-- 가로구분선 -->
+		 
+		 색상 : <input type="color">					<br/>
+		 날짜 : <input type="date">					<br/>
+		 날짜/시간 : <input type="datetime-local">		<br/>
+		 월 : <input type="month"> 					<br/>
+		 시간 : <input type="time"> 					<br/>
+		 주 : <input type="week"> 					<br/>
+		 범위 : <input type="range"> 					<br/>
+		 숫자 : <input type="number">					<br/>
+		 <input type="button" value="인증버튼"> <br/>
+		 <input type="submit" value="전송버튼"> : form전송	<br/>	 
+		 <input type="reset" value="입력초기화버튼"> : form에 포함된 입력값 초기화	<br/>
+
+		<select> : 목록 상자
+			<option> 네이버 </option> : 목록상자의 항목
+			<option> 카카오 </option> : 목록상자의 항목
+			<option> 네이트 </option> : 목록상자의 항목
+		</select>
+
+		<!--
+			textarea 큰 글자 박스
+			rows 행 글자 수
+			cols 열 글자 수 
+		-->
+		<textarea rows="5" cols="20" ></textarea>
+
+
+	 </form>
+	 
+	 
+	 
+</body>
+</html>

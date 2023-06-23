@@ -1,4 +1,4 @@
-console.log('------------예제3------------')
+/*console.log('------------예제3------------')
 //예제3
 let n = Number(prompt("횟수"))
 for(let i=1; i<=n; i++){
@@ -123,14 +123,74 @@ for(let x=0;x<max;x+= adsub)
 
    _str += "*"
    console.log(`${_str}`)
-   
+}*/
+console.log('------------예제11------------')
+//예제11 n == 7
+let m = Number(prompt("횟수(11번 부터)"))
+for(let i=1; i<=m/2; i++){
+	let num = ``
+	for(let k=1; k<=i; k++){
+		num += '*'
+	}
+	for(let j=i*2+1; j<=m; j++){ 
+		num += ` `
+	}
+	for(let r=1; r<=i; r++){
+		num += '*'
+	}
+	console.log(`${num}`)
 }
-
-
-
-
-
-
+let number = ``
+for(let i=1; i<=m; i++){
+	number += '*'
+}
+console.log(`${number}`)
+for(let i=1; i<=m/2; i++){
+	let num = ``
+	for(let k=i; k<=m/2; k++){
+		num += '*'
+	}
+	for(let j=1; j<=i*2-1; j++){
+		num += ` `
+	}
+	for(let r=i; r<=m/2; r++){
+		num += '*'
+	}
+	console.log(`${num}`)
+}
+console.log('------------예제12------------')
+//예제12 n == 7
+for(let i=1; i<=m/2; i++){
+	let num = ``
+	for(let k=1; k<i; k++){
+		num += ' '
+	}
+	for(let j=i*2-1; j<=m; j++){
+		num += `*`
+	}
+	for(let r=1; r<i; r++){
+		num += ' '
+	}
+	console.log(`${num}`)
+}
+number = ``
+for(let i=1; i<=m/2; i++){
+	number += ' '
+}
+console.log(`${number}*`)
+for(let i=1; i<=m/2; i++){
+	let num = ``
+	for(let k=i+1; k<m/2; k++){
+		num += ' '
+	}
+	for(let j=1; j<=i*2+1; j++){
+		num += `*`
+	}
+	for(let r=i+1; r<m/2; r++){
+		num += ' '
+	}
+	console.log(`${num}`)
+}
 
 
 

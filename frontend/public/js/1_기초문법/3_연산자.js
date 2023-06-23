@@ -48,9 +48,16 @@ console.log('이거나 : '+(10>3 || 20>30))
 console.log('부정 : '+!(10>3))
 console.log()
 */
+
+
+
 /*//문제4
 let 홀짝 = Number(prompt('홀짝'))
 console.log(홀짝%2==0 ? '짝수' : '홀수' )
+
+
+
+
 //문제5
 let 배수 = Number(prompt('배수'))
 console.log(배수%7==0 ? 'true' : 'false' )

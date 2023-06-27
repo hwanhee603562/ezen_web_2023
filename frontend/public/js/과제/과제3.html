@@ -8,21 +8,24 @@
 
 </head>
 <body>
-	<input class="dateinput" type="date">
-	<input class="menuinput" type="text">
-	<input class="priceinput" type="text">
-	<button onclick="input()">입력하기</button>
+	<div id="table_Box">
+		<div class="input_Box">
+			<input class="dateInput" type="date">
+			<input class="menuInput" type="text">
+			<input class="priceInput" type="text">
+			<button class="input_Button" onclick="input()">입력하기</button>
+		</div>
 	
-	<table class="출력구역">
-		<tr>
-			<th>날짜</th>
-			<th>항목</th>
-			<th>금액</th>
-			<th>비고</th>
-		</tr>
-		
-	</table>	
-	
+		<table class="outPutLine">
+			<tr>
+				<th>날짜</th>
+				<th>항목</th>
+				<th>금액</th>
+				<th>비고</th>
+			</tr>
+			
+		</table>	
+	</div>
 	<!-- colspan으로 병합 -->
 	
 	<script src="과제3.js" type="text/javascript"></script>

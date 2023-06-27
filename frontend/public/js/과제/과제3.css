@@ -1,13 +1,60 @@
 @charset "UTF-8";
 
-.출력구역{
+#table_Box{
+	width: 945px;
+	height: 500px;
+	margin: 0 auto;
 	border: 1px solid black;
+	margin-top : 50px;
 }
-.출력구역 th{
-	border: 1px solid black;
+.input_Box{
+	width: 800px;
+	height: 100px;
+	margin: 0 auto;
+	padding-top : 40px;
+	padding-left: 145px;
+	background-color: black;
 }
-.출력구역 td{
+
+
+.dateInput{
+	width: 120px;
+	height: 40px;
+}
+.menuInput{
+	width: 180px;
+	height: 40px;
+}
+.priceInput{
+	width: 180px;
+	height: 40px;
+	text-align: center;
+}
+.input_Button{
+	width: 120px;
+	height: 40px;
+}
+
+
+
+
+.outPutLine{
+	width: 945px;
+	height: 30px;
 	border: 1px solid black;
+	margin: 0 auto;
+}
+.outPutLine tr{
+	border: 1px solid black;
+	text-align: center;
+}
+.outPutLine th{
+	border: 1px solid black;
+	text-align: center;
+}
+.outPutLine td{
+	border: 1px solid black;
+	text-align: center;
 }
 
 

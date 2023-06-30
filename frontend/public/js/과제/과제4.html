@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<link href="과제4.css" rel="stylesheet">
+
+</head>
+<body>
+	<div id="wrap"><!-- 레이아웃 시작 -->
+		<div id="writePage">
+			<h2>글쓰기 페이지</h2>
+			작성자 : <input class="mname" type="text"><br/>
+			비밀번호 : <input class="pwd" type="password"><br/>
+			제목 : <input class="title" type="text"><br/>
+			내용 : <input class="contentbox" type="text"><br/>
+			<button onclick="clickUpload()"> 글등록 </button>
+		</div>
+		
+		<div id="contentPage">
+			<h2>글목록 페이지</h2>
+				<table class="mainPage">
+					<tr> 
+						<th> 번호 </th>
+						<th> 제목 </th>
+						<th> 작성자 </th>
+						<th> 작성일 </th>
+						<th> 조회수 </th>
+					</tr>
+				</table>
+
+		</div>
+		
+		<div id="lookPage">
+			<h2>글보기 페이지</h2>
+			<div class="writemainpage">
+				<h5>제목 : </h5>
+				<h5>내용 : </h5>
+				<h5>작성자 : </h5>
+				<button>삭제</button>
+				<button>수정</button>
+			</div>
+		</div>
+	</div><!-- 레이아웃 끝 -->
+	
+	
+	
+	<script src="과제4.js" type="text/javascript"></script>
+</body>
+</html>

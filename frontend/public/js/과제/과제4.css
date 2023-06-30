@@ -1,0 +1,33 @@
+#wrap{
+	border: 1px solid black;
+	display: flex;
+	justify-content: space-between;
+	padding : 100px;
+}
+#contentPage{
+	padding-right: 100px;
+}
+#lookPage{
+	padding-right: 150px;
+}
+.content{
+	margin-top: 10px;
+	height: 30px;
+	vertical-align: top;
+}
+.contentbox{
+	width: 350px;
+	height: 180px;
+	margin-top: 10px;
+}
+.mainPage{
+	border: 1px solid black;
+}
+.mainPage th{
+	border: 1px solid black;
+}
+.mainPage td{
+	border: 1px solid black;
+	text-align: center;
+	padding: 10px;
+}

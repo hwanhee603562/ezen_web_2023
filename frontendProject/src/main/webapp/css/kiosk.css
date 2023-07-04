@@ -1,0 +1,169 @@
+@charset "UTF-8";
+
+/* 키오스크 전체구역 */
+.kioskwrap{
+	font-family: 'KBO-Dia-Gothic_bold';
+	width: 700px;
+	margin: 50px auto;
+}
+/* 헤더 구역 이미지 */
+.himg{
+	width: 100%;
+	objcet-fit: cover;
+	/* 비율맞추기 */
+}
+
+/* 카테고리 */
+.categorymenu{
+	display: flex;
+	justify-content: space-around;
+	padding-top: 20px;
+}
+
+/* 선택 안된 카테고리 */
+.categorymenu li{
+	color: #8e8e8e;
+}
+
+/* 선택된 카테고리 */
+.categoryselect{
+	color: red !important;
+	/* 속성이 중복되었을 경우 
+		1. id 별도로 해서 속성적용
+		2. style 속성
+		3. !important - 우선순위 최우선
+	*/
+	border-bottom: 3px solid red;
+	padding-bottom: 3px;
+}
+
+/* 제품들이 출력되는 구역 */
+.productbox{
+	height: 450px;
+	/* height가 없을시 내용물 크기만 자동으로 늘어감 */
+	display: flex;
+    flex-wrap: wrap;
+	overflow-y: scroll;	/* 세로스크롤 생성 */
+	/* 자식요소들이 현재 구역보다 사이즈가 커지면 */
+}
+
+.product{
+	width: 30%;
+	text-align: center;
+	margin: 5px 10px 30px 10px;
+	
+}
+/* 제품 1개 */
+.product img{
+	width: 100%;
+}
+.pprice{
+	color: red;
+}
+
+
+/* 카트출력구역 */
+.cartbox{
+	height: 250px;
+	background-color: #eeeeee;
+	position: relative;
+}
+
+
+/* 카트 상단 부분 */
+.carttop{
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 50px;
+}
+
+/* 카트내 제품수 원형 */
+.ccount{
+	background-color: red;
+	width: 30px;
+	display: inline-block;
+	/* span의 inline속성에 block속성을 일부 추가하여 사이즈 조절가능해짐 */
+	border-radius: 30px;
+	font-size: 12px;
+	color: white;
+	text-align: center;
+	padding: 4px;
+}
+
+/* 카트내 제품 총가격 */
+.ctotal{
+	color: red;
+}
+/* 카트내 제품 출력 구역 */
+.cartbottom{
+	display: flex; 
+	overflow-x: scroll;
+}
+/* 카트내 제품 1개 */
+.citem{
+	min-width: 24%;
+	/* 구역밖을 넘어가면 상위 요소의
+	display: flex로 인해 자동으로 크기가 작아지기에
+	자식요소의 최대,최소 범위를 별도 지정함 */
+	
+	
+	
+	background-color: white;
+	padding: 10px;
+	margin: 5px 10px;
+	position: relative;
+}
+/* 카트 개별취소 버튼 */
+.icancel{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+/* 카트제품명 */
+.iname{
+	width: 70%;
+	height: 70%;
+}
+.iprice{
+	color: red;
+}
+
+/* 버튼들의 구역 */
+.cartbtn{
+	display: flex;
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+	/* 아래선을 기준으로 맞춤 */
+}
+
+.cartbtn button{
+	width: 50%;
+	font-size: 20px;
+	color: white;
+	border: none;
+	padding: 20px; 
+}
+.cancelbtn{
+	background-color: black;
+}
+.orderbtn{
+	background-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

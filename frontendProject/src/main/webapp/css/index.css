@@ -1,0 +1,26 @@
+@charset "UTF-8";
+*{
+	padding: 0px;
+	margin: 0px;
+}
+li{/* 글머리 제거 */
+	list-style-type: none;	
+}
+a{/* a태그의 색상, 밑줄제거 */
+	color: black;	
+	text-decoration: none;
+}
+/* 페이지 사이즈 1200px */
+
+/* 외부폰트 */
+@font-face {
+    font-family: 'KBO-Dia-Gothic_bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+.head_menu{
+	display: flex;
+	justify-content: space-around;/* 가로배치 */
+}

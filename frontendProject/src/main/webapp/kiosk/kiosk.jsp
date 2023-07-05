@@ -47,8 +47,8 @@
 				<div class="cartcontent"><!-- 제품개수/가격, 제품정보 출력 -->
 					
 					<div class="carttop"><!-- 제품개수/가격 출력구역 -->
-						<div> 카트 <span class="ccount">3</span> </div>
-						<div> 총 주문금액 <span class="ctotal"> 31,000</span> </div>
+						<div> 카트 <span class="ccount">0</span> </div>
+						<div> 총 주문금액 <span class="ctotal"> 0</span> </div>
 					</div>
 					
 					<div class="cartbottom"><!-- 제품정보 출력구역 -->
@@ -60,9 +60,9 @@
 				</div><!-- 제품개수/가격, 제품정보 출력 end -->
 				
 				
-				<div onclick="cartCancel()" class="cartbtn"><!-- 버튼 구역 -->
-					<button class="cancelbtn">취소하기</button>
-					<button class="orderbtn">주문하기</button>
+				<div class="cartbtn"><!-- 버튼 구역 -->
+					<button onclick="cartCancel()" class="cancelbtn">취소하기</button>
+					<button onclick="productOrder()" class="orderbtn">주문하기</button>
 				</div><!-- 버튼 구역 end -->
 				
 				

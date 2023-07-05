@@ -12,6 +12,13 @@ let burgerList = [
 				{name : '치킨킹', price : 8000, img : '치킨킹.png', category : 3} ]
 				
 let cartList = []
+	// 1. 주문(주문내역) 배열
+		/*		주문 {주문번호: , 주문날짜 : , 결제금액 : , 주문제품들 [] , 상태 : 0[주문요청] / 1[완료] / 2[주문취소] }	*/
+
+let orderList = [
+	{ ono : 1, date : '2023-07-05 13:30 13:30:21', pay : 30000, products : [ 0, 0, 2 ], state : 1 }
+		
+				]
 
 /*---------------------------------------------------*/
 
@@ -118,7 +125,7 @@ function cartPrint(){
 	let cartbottom = document.querySelector('.cartbottom')
 
 	let html = ''
-	let total = 0
+	let totalPrice = 0
 	for(let i=0; i<cartList.length; i++){
 		let burgerIndex = cartList[i]
 		html += `<div class="citem">
@@ -126,23 +133,25 @@ function cartPrint(){
 					<div class="iprice">${burgerList[burgerIndex].price.toLocaleString()}원</div>
 					<span onclick="productCancel(${i})" class="icancel">X</span>
 				</div>`
-		total += burgerList[burgerIndex].price
+		totalPrice += burgerList[burgerIndex].price
 		
 	}
 	
 	cartbottom.innerHTML = html
 	
-	document.querySelector('.ccount') = `${cartList.length}`
+	document.querySelector('.ccount').innerHTML = `${cartList.length}`
 	
-	document.querySelector('.ctotal') = `${totalPrice.toLocaleString()}원`
+	document.querySelector('.ctotal').innerHTML = `${totalPrice.toLocaleString()}원`
 
+	// 카트내 제품이 많아서 스크롤이 생겨났을 경우 자동으로 가장 오른쪽으로 이동
+	cartbottom.scrollLeft = 10000;
 }
 
 // 7. 카트내 버거 부분 개별 함수
 function productCancel( cartIndex ){
 	
 	cartList.splice(cartIndex, 1)
-	alert('취소되었습니다')
+
 	
 	cartPrint();
 	
@@ -152,7 +161,55 @@ function productCancel( cartIndex ){
 // 8. 카트내 버거 전체 개별 함수
 function cartCancel(){
 	cartList.splice(0)
-	alert('모두 취소되었습니다')
 	
 	cartPrint();
 }
+
+/*		주문 {주문번호: , 주문날짜 : , 결제금액 : , 주문제품들 [] , 상태 : 0[주문요청] / 1[완료] / 2[주문취소] }	*/
+
+// 9. 카트내 저장된 버거 주문(등록) 함수 [실행조건 : 주문하기 버튼을 클릭했을 때]
+function productOrder(){
+	
+	let ono = orderList[orderList.length-1].ono
+	
+	let products = [];	// 주문이 들어가는 버거들 인덱스
+	let totalprice = 0;
+	
+	for(let i=0; i<cartList.length; i++){
+		products.push(cartList[i])	// i번째 버거를 새로운 배열에 저장
+		totalprice += burgerList[cartList[i]].price
+	}
+	
+	let order = {
+		ono : ono+1,		// 주문번호 생성해서 저장
+		date : new Date(), 	// 현재날짜/시간 구해주는 함수 이용해서 자동으로 대입
+		pay : totalprice, 			// 카트 내 제품들의 총가격
+		products : products,		//카트에 있던 모든 제품들
+		state : 0				//주문객체 생성시 '주문요청'으로 상태 초기로 사용
+	}
+	
+	orderList.push( order )
+	alert('주문이 들어갔습니다')
+	
+	cartCancel()
+	console.log(orderList)
+	
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -40,7 +40,7 @@ let loginId = 'blue1234'
 				JS : { id : 'qwe', pwd : '1234'}
 				JSON : "{ id : 'qwe', pwd : '1234'}"
 			- 사용방법
-				1. JSON.parse()			: 문자타입을 객체/배열 티입으로 변환
+				1. JSON.parse()			: 문자타입을 객체/배열 타입으로 변환
 				1. JSON.stringify		: 객체/배열 타입을 문자타입으로 변환
 			
 */

@@ -69,6 +69,9 @@ public class Ex4_입출력 {
 		double 더블 = sc.nextDouble();
 		System.out.println("입력된 더블 : "+ 더블);
 		
+		String 내꿈은_해적왕 = sc.nextLine()+sc.nextLine();
+		
+		
 	}
 }
 

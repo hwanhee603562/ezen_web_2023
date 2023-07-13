@@ -22,7 +22,7 @@ public class 과제1 {
 		 * 문제4번
 		 * 		타입		: int, double
 		 * 		변수이름	: age, price
-		 * 		리터럴	: int, double
+		 * 		리터럴	: 10, 3.14
 		 * 문제5번 3
 		 * 문제6번 4
 		 * 문제7번 6

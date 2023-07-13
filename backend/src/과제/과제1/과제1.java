@@ -2,7 +2,6 @@ package 과제.과제1;
 
 public class 과제1 {
 	public static void main(String[] args) {
-		
 		/* 문제1번 4
 		 * 문제2번 2, 3, 6, 7
 		 * 문제3번 
@@ -25,7 +24,7 @@ public class 과제1 {
 		 * 		리터럴	: 10, 3.14
 		 * 문제5번 3
 		 * 문제6번 4
-		 * 문제7번 6
+		 * 문제7번 3
 		 * 문제8번 3
 		 * 문제9번 1
 		 * 문제10번 2

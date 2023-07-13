@@ -2,7 +2,7 @@ package java1.day01;
 
 import java.util.Scanner;
 
-public class Ex_4입출력 {
+public class Ex4_입출력 {
 	public static void main(String[] args) {
 		
 		
@@ -45,7 +45,7 @@ public class Ex_4입출력 {
 				// 1. 입력받은 문자열 가져오기	
 				// 2. 변수에 저장
 				// 3. 변수에 출력 확인
-		String 문자열 = sc.nextLine();
+		String 문자열 = sc.nextLine();		// sc.next() 는 문자열을 입력받을 수 있지만 개행문자와 그 뒤 문자를 무시
 		System.out.println("입력된 문자열은 : "+ 문자열);
 		
 		boolean 논리 = sc.nextBoolean();

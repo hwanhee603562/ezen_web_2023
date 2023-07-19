@@ -14,7 +14,7 @@ public class 연산20문제 {
 		System.out.println("|\"^\"`    |");
 		System.out.println("||_/=\\\\__|");
 		
-		------ 문제2 여기에 풀이-------//
+		//------ 문제2 여기에 풀이-------//
 		
 		String member = sc.nextLine();
 		String content = sc.nextLine();

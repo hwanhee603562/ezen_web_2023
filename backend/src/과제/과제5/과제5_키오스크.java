@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class 과제5_키오스크 {
 	
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		
 		Scanner scanner = new Scanner(System.in);
 		
@@ -12,123 +12,107 @@ public class 과제5_키오스크 {
 		/* 재고관리 변수 샘플  */
 		재고관리 = "~~~";
 		/* ----------- */
-		재고관리 = "콜라:사이다:환타,300:200:100,10/10_10";
-		//재고관리 = "콜라:사이다:환타|300:200:100|콜라바구니:사이다바구니:환타바구니";
+		재고관리 = "콜라:환타:사이다,300:200:100,10:10:10,0:0:0";
 		while(true) {
 			System.out.println("\n\n-------------------- 메뉴 ------------------- ");
 			System.out.println("1.콜라[300] 2.환타[200] 3.사이다[100] 4.결제");
 			System.out.print(">>>>>> 선택 : "); int ch = scanner.nextInt();
-			
-			/* 문제풀이 위치 */
-			//콜라 22,23
-			//환타 25,26
-			
-			
-
-			
-			
-			
 			String str = "";	
-			if(ch==1) {
-				if(Character.getNumericValue(재고관리.charAt(22)) <= 0) {
-					// 콜라재고가 없을 경우
+			if(ch==1) {	// 콜라재고 없을 경우
+				if(Integer.parseInt(재고관리.split(",")[2].split(":")[0])<=0) {
 					System.out.println("재고없음");
+				} else {	// 콜라재고 있을 경우
+					str = 재고관리.substring(0, 22);
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[2].split(":")[0])-1)+":";
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[2].split(":")[1]))+":";
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[2].split(":")[2]))+",";
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[3].split(":")[0])+1)+":";
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[3].split(":")[1]))+":";
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[3].split(":")[2]));
+					재고관리 = str;
+					str = "";
 				}
-				else {
-					// 콜라재고가 있을 경우
-					
-					if( 재고관리.charAt(23)==48 ) {
-						//콜라재고가 두자릿수인 경우
-						
-						for(int i=0; i<재고관리.length(); i++) {
-							
-							if(i==22) {
-								str += '9';
-							} else if(i==23){
-								continue;
-							} else {
-								str += 재고관리.charAt(i);
-							}		
-						}
+			} else if(ch==2) {	// 환타재고 없을 경우
+				if(Integer.parseInt(재고관리.split(",")[2].split(":")[1])<=0) {
+					System.out.println("재고없음");
+				} else {	// 환타재고 있을 경우
+					str = 재고관리.substring(0, 22);
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[2].split(":")[0]))+":";
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[2].split(":")[1])-1)+":";
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[2].split(":")[2]))+",";
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[3].split(":")[0]))+":";
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[3].split(":")[1])+1)+":";
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[3].split(":")[2]));
+					재고관리 = str;
+					str = "";
+				}
+			} else if(ch==3) {	// 사이다재고 없을 경우
+				if(Integer.parseInt(재고관리.split(",")[2].split(":")[2])<=0) {
+					System.out.println("재고없음");
+				} else {	// 사이다재고 있을 경우
+					str = 재고관리.substring(0, 22);
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[2].split(":")[0]))+":";
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[2].split(":")[1]))+":";
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[2].split(":")[2])-1)+",";
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[3].split(":")[0]))+":";
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[3].split(":")[1]))+":";
+					str += String.valueOf(Integer.parseInt(재고관리.split(",")[3].split(":")[2])+1);
+					재고관리 = str;
+					str = "";
+				}
+			} else if(ch==4) {
+				System.out.println("제품명\t수량\t가격");
+				if(Integer.parseInt(재고관리.split(",")[3].split(":")[0])>0){
+					System.out.println("콜라\t"+Integer.parseInt(재고관리.split(",")[3].split(":")[0])+"\t"+(Integer.parseInt(재고관리.split(",")[3].split(":")[0])*300));
+				}
+				if(Integer.parseInt(재고관리.split(",")[3].split(":")[1])>0){
+					System.out.println("환타\t"+Integer.parseInt(재고관리.split(",")[3].split(":")[1])+"\t"+(Integer.parseInt(재고관리.split(",")[3].split(":")[1])*200));
+				}
+				if(Integer.parseInt(재고관리.split(",")[3].split(":")[2])>0){
+					System.out.println("사이다\t"+Integer.parseInt(재고관리.split(",")[3].split(":")[2])+"\t"+(Integer.parseInt(재고관리.split(",")[3].split(":")[2])*100));
+				}
+				System.out.println("총가격 : "+((Integer.parseInt(재고관리.split(",")[3].split(":")[0])*300)+(Integer.parseInt(재고관리.split(",")[3].split(":")[1])*200)+(Integer.parseInt(재고관리.split(",")[3].split(":")[2])*100)));
+				System.out.println("1. 결제 2. 취소");
+				int ch2 = scanner.nextInt();
+				if(ch2 == 1){
+					System.out.println("금액을 입력해주세요");
+					int ch3 = scanner.nextInt();
+					if(ch3 >= ((Integer.parseInt(재고관리.split(",")[3].split(":")[0])*300)+(Integer.parseInt(재고관리.split(",")[3].split(":")[1])*200)+(Integer.parseInt(재고관리.split(",")[3].split(":")[2])*100))){
+						System.out.println("잔돈"+(ch3-((Integer.parseInt(재고관리.split(",")[3].split(":")[0])*300)+(Integer.parseInt(재고관리.split(",")[3].split(":")[1])*200)+(Integer.parseInt(재고관리.split(",")[3].split(":")[2])*100))));
+						str = 재고관리.substring(0, 22);
+						str += String.valueOf(Integer.parseInt(재고관리.split(",")[2].split(":")[0]))+":";
+						str += String.valueOf(Integer.parseInt(재고관리.split(",")[2].split(":")[1]))+":";
+						str += String.valueOf(Integer.parseInt(재고관리.split(",")[2].split(":")[2]))+",";
+						str += "0:";
+						str += "0:";
+						str += "0";
 						재고관리 = str;
 						str = "";
-						System.out.println(재고관리);
-						
 					} else {
-						//콜라재고가 한자릿수인 경우
-						for(int i=0; i<재고관리.length(); i++) {
-							
-							if(i==22){
-								str += Integer.toString((Character.getNumericValue(재고관리.charAt(22))-1)).charAt(0);
-							} else {
-								str += 재고관리.charAt(i);
-							}
-						}
+						System.out.println("결제취소");
+						str = 재고관리.substring(0, 22);
+						str += String.valueOf((Integer.parseInt(재고관리.split(",")[2].split(":")[0]))+Integer.parseInt(재고관리.split(",")[3].split(":")[0]))+":";
+						str += String.valueOf((Integer.parseInt(재고관리.split(",")[2].split(":")[1]))+Integer.parseInt(재고관리.split(",")[3].split(":")[1]))+":";
+						str += String.valueOf((Integer.parseInt(재고관리.split(",")[2].split(":")[2]))+Integer.parseInt(재고관리.split(",")[3].split(":")[2]))+",";
+						str += "0:";
+						str += "0:";
+						str += "0";
 						재고관리 = str;
 						str = "";
 					}
-				}
-			}			
-						//콜라:사이다:환타,300:200:100,10/10_10
-						// 환타재고가 없을 경우의 문자열
-						// 24 25 26 /0/
-						// 23 24 25 /0/
-						// 25 26 27 /0/
-			
-			if(ch==2) {
-				if(재고관리.split(",")[2].split("/")[1].split("_")[0].equals("0")) {
-					// 환타재고가 없을 경우
-					System.out.println("재고없음");
-				}
-				else {
-					// 환타재고가 있을 경우
-					
-					if( 재고관리.split(",")[2].split("/")[1].split("_")[0].equals("10") ) {
-						
-						//환타재고가 두자릿수인 경우
-						
-						for(int i=0; i<재고관리.length(); i++) {
-							
-							int a = 0;
-							if(재고관리.charAt(i)=='/') {
-								a = i+1;
-								str += 재고관리.charAt(i);
-							} else if(i==a) {
-								str += '9';
-							} else if(i==a+1) {
-								continue;
-							} else {
-								str += 재고관리.charAt(i);
-							}
-							
-						}
+				} else if(ch2 == 2){
+					System.out.println("결제취소");
+						str = 재고관리.substring(0, 22);
+						str += String.valueOf((Integer.parseInt(재고관리.split(",")[2].split(":")[0]))+Integer.parseInt(재고관리.split(",")[3].split(":")[0]))+":";
+						str += String.valueOf((Integer.parseInt(재고관리.split(",")[2].split(":")[1]))+Integer.parseInt(재고관리.split(",")[3].split(":")[1]))+":";
+						str += String.valueOf((Integer.parseInt(재고관리.split(",")[2].split(":")[2]))+Integer.parseInt(재고관리.split(",")[3].split(":")[2]))+",";
+						str += "0:";
+						str += "0:";
+						str += "0";
 						재고관리 = str;
 						str = "";
-						System.out.println(재고관리);
-						
-					} else {
-						//콜라재고가 한자릿수인 경우
-						for(int i=0; i<재고관리.length(); i++) {
-							
-							if(i==22){
-								str += Integer.toString((Character.getNumericValue(재고관리.charAt(22))-1)).charAt(0);
-							} else {
-								str += 재고관리.charAt(i);
-							}
-						}
-						재고관리 = str;
-						str = "";
-					}
 				}
 			}
-			
-			
-			
-			
-			
-			
-			
-			
 			/* ----------- */
 			
 		} // while end 

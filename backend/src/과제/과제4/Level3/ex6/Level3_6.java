@@ -69,7 +69,7 @@ public class Level3_6 {
 					if(sum.charAt(i)=='0') {
 						System.out.print("[]");
 					} else if(sum.charAt(i)=='1') {
-						System.out.println("[예약]");
+						System.out.print("[예약]");
 					}
 				}
 			}

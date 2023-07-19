@@ -13,14 +13,7 @@ public class Level3_6 {
 		
 		/* 문제풀이 위치 */
 		
-		int a = 0;
-		int b = 0;
-		int c = 0;
-		int d = 0;
-		int e = 0;
-		int f = 0;
-		
-		int n2 = 0;
+	
 		
 		System.out.println("메뉴 : 1.예약하기 2.예약취소 3.예약현황 ");
 		

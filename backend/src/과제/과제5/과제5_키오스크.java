@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class 과제5_키오스크 {
 	
-public static void main(String[] args) {
+	public static void main(String[] args) {
 		
 		Scanner scanner = new Scanner(System.in);
 		

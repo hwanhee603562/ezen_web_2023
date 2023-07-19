@@ -1,4 +1,4 @@
-package 과제.과제22;
+package 과제.과제2_2;
 
 import java.util.Scanner;
 

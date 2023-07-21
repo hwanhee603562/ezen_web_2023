@@ -1,8 +1,8 @@
-package 과제.과제6;
+package 과제.팀과제;
 
 import java.util.Scanner;
 
-public class 도서대여 {
+public class 팀과제2 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		

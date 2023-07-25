@@ -1,4 +1,4 @@
-package 복습.part1;
+package 복습;
 
 import java.util.Scanner;
 

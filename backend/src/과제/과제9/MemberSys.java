@@ -66,7 +66,7 @@ public class MemberSys {
 					
 					// memberList 내 기본값은 null이기 때문에 null이 아닌 경우에 확인하도록함
 					// and연산 '&&'는 가장 왼쪽부터 비교하기에 null값 판단은 가장 왼쪽이어야함
-					if( memberList[i] != null && memberList[i].아이디.equals(inputId) && memberList[i].비밀번호.equals(inputPw) ) {
+					if( memberList[i] != null && memberList[i].id.equals(inputId) && memberList[i].password.equals(inputPw) ) {
 						
 						login = i;
 						break;

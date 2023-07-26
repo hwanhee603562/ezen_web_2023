@@ -74,7 +74,7 @@ public class MemberSys {
 				}
 				
 				// 3. 로그인 성공여부 변수에 따른 흐름제어
-				if(login != -1) {
+				if(login == -1) {
 					System.out.println("로그인 실패");
 				} else {
 					System.out.println("로그인 성공");

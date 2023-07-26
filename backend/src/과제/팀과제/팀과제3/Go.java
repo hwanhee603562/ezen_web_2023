@@ -23,8 +23,7 @@ public class Go {
 			while(true) {
 				
 				if(fishing.내구도>0) {
-					fishing.fishing();
-										
+					fishing.fishing();			
 				} else {
 					System.out.println("낚시대를 교체해주세요");
 					break;

@@ -19,9 +19,13 @@ public class MemberSys {
 			
 			if( ch == 1 ) {
 				회원가입 ();
-			} else if( ch == 2 ) { 로그인 (); } 
-			else if( ch == 3 ) { 아이디찾기 (); } 
-			else if( ch == 4 ) { 비밀번호찾기 (); } 
+			} else if( ch == 2 ) {
+				로그인 (); 
+			} else if( ch == 3 ) { 
+				아이디찾기 (); 
+			} else if( ch == 4 ) { 
+				비밀번호찾기 (); 
+			} 
 			
 		} // w e 
 	}

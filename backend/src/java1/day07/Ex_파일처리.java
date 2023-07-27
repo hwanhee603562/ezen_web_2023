@@ -63,7 +63,7 @@ public class Ex_파일처리 {
 			// 1-2 해당 파일경로에 파일이 없는 경우 새로운 파일 생성
 		FileOutputStream fileOutputStream = new FileOutputStream("./src/java1/day07/Ex2_테스트.txt", true);
 				// 이어쓰기 기능추가
-			// 2. 파일출력스트림 객체를 이요한 내보내기 메소드 사용 [바이트 단위]
+			// 2. 파일출력스트림 객체를 이용한 내보내기 메소드 사용 [바이트 단위]
 		byte[] outstrArray = instr.getBytes();		// 문자열을 바이트배열로 변환
 		fileOutputStream.write(outstrArray);		// 바이트배열을 내보내기
 		

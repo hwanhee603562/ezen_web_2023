@@ -18,7 +18,7 @@ public class 과제5_키오스크_파일처리 {
 			/* ------------------------------- 프로그램의 필용한 객체 및 변수들   ---------------------------- */
 			Scanner scanner = new Scanner(System.in); // 입력객체 
 			String filePath = "./src/과제/과제5/재고파일.txt";	// 파일경로
-			FileOutputStream fileOutputStream = new FileOutputStream( filePath ,true); // 파일출력객체
+			FileOutputStream fileOutputStream = new FileOutputStream( filePath ,true ); // 파일출력객체
 			FileInputStream fileInputStream = new FileInputStream( filePath ); // 파일입력객체
 			File file = new File( filePath );	// 파일정보객체 ( 용량 , 경로 , 파일명 등등 ) 메소드 제공 
 			
@@ -29,6 +29,8 @@ public class 과제5_키오스크_파일처리 {
 			
 			/* ------- 파일내 제품정보 하나의 문자열 ---> 각 제품별된 배열 저장 -----------------------*/
 			String[] 재고관리 = fileInfo.split("\n");	//System.out.println(" 제품별 분리 :  " + Arrays.toString(재고관리)); // 1. 하나 문자열로 모든 제품의 문자열을 각 제품별로 분리 
+			// 콜라,10,300,0
+			// 제품명, 재고, 가격, 바구니
 			
 			/* ---------------------------------- 제품 정보 출력 ---------------------------------------- */
 			System.out.println("\n\n-------------------- 메뉴 ------------------- ");
@@ -40,10 +42,16 @@ public class 과제5_키오스크_파일처리 {
 						int stock = Integer.parseInt( 재고관리[i].split(",")[1] ); // 재고
 						int price = Integer.parseInt( 재고관리[i].split(",")[2] ); // 가격
 						int basket = Integer.parseInt( 재고관리[i].split(",")[3] ); // 바구니
-						if( stock == 0 ) {System.out.print( (i+1) + ":" + name+"[재고없음] ");} // 재고가 없으면 
-						else { System.out.print( (i+1) + ":" + name+"["+price+"] "); }	// 재고가 있으면
-					} // if end 
-				} // for end
+						
+						if( stock == 0 ) { // 재고가 없으면 
+							System.out.print( (i+1) + ":" + name+"[재고없음] ");
+						} 
+						else { // 재고가 있으면
+							System.out.print( (i+1) + ":" + name+"["+price+"] "); 
+						}	
+						
+					}
+				} 
 			
 			System.out.print("\n>>>>>> 선택 : "); int ch = scanner.nextInt();
 			

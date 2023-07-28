@@ -51,7 +51,7 @@ public class 과제5_키오스크_파일처리 {
 						}	
 						
 					}
-				} 
+				}
 			
 			System.out.print("\n>>>>>> 선택 : "); int ch = scanner.nextInt();
 			
@@ -75,17 +75,27 @@ public class 과제5_키오스크_파일처리 {
 				int stock = Integer.parseInt( 재고관리[ch-1].split(",")[1] ); // 재고
 				int price = Integer.parseInt( 재고관리[ch-1].split(",")[2] ); // 가격
 				int basket = Integer.parseInt( 재고관리[ch-1].split(",")[3] ); // 바구니
+				
 				// 2. 재고가 0보다 크면 재고/바구니 증감 , 재고가 없으면 안내만!
-				if( stock > 0 ) {  stock--; basket++; System.out.println( name+" 제품을 담았습니다."); }
-				else { System.out.println( name+" 제품의 재고가 부족합니다. "); }
+				if( stock > 0 ) {  
+					stock--; 
+					basket++; 
+					System.out.println( name+" 제품을 담았습니다."); 
+				} else { 
+					System.out.println( name+" 제품의 재고가 부족합니다. "); 
+				}
+				
 				// 3. 배열 상태 업데이트 
 				재고관리[ch-1] = name+","+stock+","+price+","+basket;
+				
 				// 4. 파일에 내보내기 // 파일내 제품들의 변화가 있으므로 업데이트 // 현재 재고관리배열 상태를 파일에 저장 
 				String outStr = "";
+				
 				for( int i = 0 ; i<재고관리.length ; i++ ) { // 배열내 모든 데이터를 하나의 문자열 변환
 					outStr += 재고관리[i].split(",")[0]+","+재고관리[i].split(",")[1]+
 								","+재고관리[i].split(",")[2]+","+재고관리[i].split(",")[3]+"\n";
 				} // for end 
+				
 				// 5. 재고관리 배열을 하나의 문자열로 변환된 문자열을 바이트배열로 변환후 내보내기
 				FileOutputStream fileOutputStream2 = new FileOutputStream( filePath ); // 이어쓰기x 새로쓰기o
 				fileOutputStream2.write( outStr.getBytes() );

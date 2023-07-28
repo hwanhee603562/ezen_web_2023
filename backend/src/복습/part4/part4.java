@@ -87,16 +87,35 @@ public class part4 {
 					basket++;
 					
 					// "콜라,10,300,0:" :로 제품 구분
-					재고관리[ch-1] = name+","+stock+","+price+","+basket+":";
+					재고관리[ch-1] = name+","+stock+","+price+","+basket;
 					
 					FileOutputStream fileOutputStream1 = new FileOutputStream(fileName);
 					String str = "";
-					for(int i=0; 재고관리.length; i++) {
-						str +=
+					for(int i=0; i<재고관리.length; i++) {
+						str += 재고관리[i]+"z";
 					}
+					
+					
+					
+					fileOutputStream1.write(str.getBytes());
 					
 					System.out.println(name+" 제품을 담았습니다");
 				}
+			} else if(ch==0) {
+				System.out.println("\t제품명\t수량\t가격");
+				
+				for(int i=0; i<재고관리.length; i++) {
+					if(Integer.parseInt(재고관리[i].split(",")[3])>0) {
+						System.out.print("\t"+재고관리[i].split(",")[0]+"\t");
+						System.out.print(재고관리[i].split(",")[3]+"\t");
+						
+						int a = Integer.parseInt(재고관리[i].split(",")[2]);
+						int b = Integer.parseInt(재고관리[i].split(",")[3]);
+						System.out.print((a*b)+"\n");
+						
+					}
+				}
+				int n = sc.nextInt();
 			}
 			
 			

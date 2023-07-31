@@ -14,10 +14,6 @@ public class Ex1_참조타입 {
 		// arr3, arr2는 값은 같을 수 있지만 arr3에 대입함과 동시에 새로운 주소값을 생성하여 값을 할당하기에 같다고 할 수 없음
 		
 		
-				
-		
-		
-		
 		int[] intArray = null;
 		// int[] intArray 스택영역에 변수가 메모리 할당, 참조 중인 객체번지x // 힙 영역x
 		

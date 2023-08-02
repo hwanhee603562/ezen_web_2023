@@ -119,10 +119,7 @@ public class part4 {
 				int n = sc.nextInt();
 			}
 			
-			
-			
-			
-			
+
 			
 			
 			

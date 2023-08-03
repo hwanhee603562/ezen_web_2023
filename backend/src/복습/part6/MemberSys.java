@@ -32,19 +32,20 @@ public class MemberSys {
 		System.out.println("-------회원가입-------");
 		sc.nextLine();
 		System.out.println("아이디 : ");
-		String id = sc.nextLine();
+		String id = sc.next();
 		
 		System.out.println("비밀번호 : ");
-		String pw = sc.nextLine();
+		String pw = sc.next();
 		
 		System.out.println("이름 : ");
-		String na = sc.nextLine();
+		String na = sc.next();
 		
 		System.out.println("전화번호 : ");
-		String ph = sc.nextLine();
+		String ph = sc.next();
 		
 		System.out.println("나이 : ");
 		int age = sc.nextInt();
+		sc.nextLine();
 	
 		Member m = new Member(id, pw, na, ph, age);
 		
@@ -59,12 +60,11 @@ public class MemberSys {
 	
 	public static void log() {
 		System.out.println("-------로그인-------");
-		sc.nextLine();
 		System.out.println("아이디 : ");
-		String id = sc.nextLine();
+		String id = sc.next();
 		
 		System.out.println("비밀번호 : ");
-		String pw = sc.nextLine();
+		String pw = sc.next();
 		
 		for(int i=0; i<list.length; i++) {
 			if(list[i]!=null && id.equals(list[i].id) && pw.equals(list[i].pw) ) {
@@ -78,10 +78,10 @@ public class MemberSys {
 	public static void searchId() {
 		System.out.println("-------아이디 찾기-------");
 		System.out.println("이름 : ");
-		String na = sc.nextLine();
+		String na = sc.next();
 		
 		System.out.println("전화번호 : ");
-		String ph = sc.nextLine();
+		String ph = sc.next();
 		
 		for(int i=0; i<list.length; i++) {
 			if(list[i]!=null && na.equals(list[i].na) && ph.equals(list[i].ph) ) {
@@ -95,10 +95,10 @@ public class MemberSys {
 	public static void searchPw() {
 		System.out.println("-------비밀번호 찾기-------");
 		System.out.println("아이디 : ");
-		String id = sc.nextLine();
+		String id = sc.next();
 		
 		System.out.println("전화번호 : ");
-		String ph = sc.nextLine();
+		String ph = sc.next();
 		
 		for(int i=0; i<list.length; i++) {
 			if(list[i]!=null && id.equals(list[i].id) && ph.equals(list[i].ph) ) {

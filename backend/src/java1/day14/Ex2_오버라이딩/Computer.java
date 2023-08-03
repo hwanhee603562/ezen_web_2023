@@ -23,5 +23,4 @@ public class Computer extends Calculator{
 		System.out.println("Computer areaCircle 메소드 실행 ");
 		return Math.PI * r * r;
 	}
-
 }

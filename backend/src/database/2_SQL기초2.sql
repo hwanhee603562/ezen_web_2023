@@ -115,7 +115,7 @@
                 
 		- 제약조건 
 			1. pk	: primary key( pk필드명 )
-            2. fk 	: foreign key( fk필드명 ) references pk테이블명(pk필드명) [ 선택 옵션 ]
+            2. fk 	: foreign key( fk필드명 ) references pk테이블명( pk필드명 ) [ 선택 옵션 ]
             
         
 */

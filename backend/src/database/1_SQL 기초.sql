@@ -1,5 +1,14 @@
 # 확대축소 : ctrl + 마우스휠
 # 한줄주석
+
+-- 이클립스에서 외부 sql라이브러리 추가하는 법
+/*
+	lib패키지를 생성하여 압축해제한 mysql-connector-j-버전.jar 파일 삽입 
+	mysql-connector-j-버전.jar 파일 우클릭 - Build Path - Add to Build Path 클릭
+	Referenced Libraries 파일에 mysql-connector-j-버전.jar 파일이 생성되었으면 완료
+*/
+
+
 -- 한줄주석 
 /* 여러줄 주석 */
 

@@ -60,12 +60,16 @@ public class MainPage {
 		System.out.println("전화번호[-포함] > ");
 		String phone = sc.next();
 		
-		boolean result = MemberController.getInstance().signupLogic(id, pw, name, phone);
+		int result = MemberController.getInstance().signupLogic(id, pw, name, phone);
 		
-		if(result) {
+		if(result == 1) {
 			System.out.println("회원가입이 완료되었습니다");
-		} else {
-			System.out.println("회원가입이 불가합니다");
+		} else if(result == 2) {
+			System.out.println("회원가입이 불가합니다. 관리자에게 문의");
+		} else if(result == 3) {
+			System.out.println("회원가입이 불가합니다. 아이디 중복");
+		} else if(result == 4) {
+			System.out.println("회원가입이 불가합니다. 전화번호 중복");
 		}
 	}
 	// 2 로그인 화면
@@ -79,6 +83,7 @@ public class MainPage {
 		
 		if(result) {
 			System.out.println("로그인이 완료되었습니다");
+			LoginPage.getInstance().loginMenu();
 		} else {
 			System.out.println("로그인이 불가합니다");
 		}

@@ -13,7 +13,42 @@ public class MemberDao extends Dao {
 	public static MemberDao getInstance() { return memberDao; }
 	private MemberDao() {}
 	
-	// 2. 회원가입SQL 
+	// 0 회원정보 Check SQL
+	/*
+	 * type==1 이면 아이디중복체크
+	 * type==2 이면 전화번호중복체크
+	 * 
+	 */
+	public boolean infoCheck(String 검색할필드명, String 검색할값) {
+		
+		try {
+			//String sql = "select * from member where "+검색할필드명+" = '"+검색할값+"'";
+			//" = '"+검색할값+"'"
+			//위와 같이할 경우 작은따옴표까지 기입해야하는 번거로움이 있기에 아래와 같이 물음표를 넣어줌
+			
+			String sql = "select * from member where "+검색할필드명+" = ?";
+			System.out.println(sql);
+			
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, 검색할값);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+			
+			
+			
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return false;
+	}
+	
+	
+	
+	// 1. 회원가입SQL 
 	public boolean signupSQL( MemberDto dto ) {
 		try {
 			// 1. 연동된DB객체 에서 SQL조작 도구(PreparedStatement)꺼내기  [ 연동객체명.prepareStatement("조작할SQL")
@@ -31,7 +66,7 @@ public class MemberDao extends Dao {
 		// 4. 리턴 [ 회원가입성공 =true / 회원가입실패 = false ] 
 		return false;
  	}
-	// 3. 로그인SQL
+	// 2. 로그인SQL
 	public boolean loginSQL( String id , String pw ) {
 		try {
 			// 1단계 : SQL 작성한다. [ 추천 : MYSQL 워크벤치에서 임의의값으로 테스트하고 ]
@@ -55,6 +90,78 @@ public class MemberDao extends Dao {
 		}catch (Exception e) { System.out.println(e); }
 		return false; // 로그인 실패 
 	}
+	// 3. 아이디 찾기
+	public String findById( String name, String phone ) {
+		
+		
+		// JDBC, 파일처리는 예외처리 필수!
+		try {
+			System.out.println("111");
+			String sql = "select mid from member where mname = ? and mphone = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, name);
+			ps.setString(2, phone);
+			
+			rs = ps.executeQuery();
+			System.out.println("222");
+			if(rs.next()) {
+				System.out.println("333");
+				// 조회필드가 select *(와일드카드)가 아니라 select pw이기에
+				// 조회필드 범위에 따라 getString에 다르게 순서번호를 기입해야함 
+				
+				// 검색된 레코드 중 1번째 필드인 아이디값을 반환
+				// rs.getString( 검색필드순서번호 )	: 현재 위치한 레코드의 필드값 문자열 호출
+				// rs.getInt( 검색필드순서번호 )		: 현재 위치한 레코드의 필드값 정수 호출
+				
+				return rs.getString(1);
+			}
+			
+		} catch (Exception e) {
+			
+			System.out.println(e);
+			
+		}
+		
+		System.out.println("444");
+		return null;	//	실패
+		
+		
+	}
+	// 4. 비밀번호 찾기
+	public String findByPw( String id, String phone ) {
+		
+		try {
+			
+			String sql = "select mpw from member where mid = ? and mphone = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, phone);
+			
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				
+				// rs.getString( 검색필드순서번호 )	: 현재 위치한 레코드의 필드값 문자열 호출
+				// rs.getInt( 검색필드순서번호 )		: 현재 위치한 레코드의 필드값 정수 호출
+				return rs.getString(1);
+			}
+			
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println(e);
+			
+		}
+		
+		
+		return null;	//	실패
+		
+		
+	}	
+	
+	
+	
+	
 }
 
 /*

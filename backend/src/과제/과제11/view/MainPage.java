@@ -22,19 +22,22 @@ public class MainPage {
 		
 		while(true) {
 			System.out.println("\n\n======= 회원제 커뮤니티 =======");
-			System.out.print("1.회원가입 2.로그인");
+			System.out.print("1.회원가입 2.로그인 3.아이디찾기 4.비밀번호찾기");
 			
 			try {
 				
 				int ch = sc.nextInt();
 				// 만약에 타입과 일치하지 않는 값을 입력하면 
 				// java.util.InputMismatchException 발생
-				if(ch==1) {
-					signupView();
-				}
-				if(ch==2) {
-					loginView();
-				}
+				
+				if(ch==1) signupView();
+				
+				if(ch==2) loginView();
+				
+				if(ch==3) findById();
+			
+				if(ch==4) findByPw();
+				
 			
 			} catch(Exception e) {
 				System.out.println("경고] 잘못 입력했습니다");
@@ -44,7 +47,7 @@ public class MainPage {
 		}
 		
 	}
-	// 회원가입 화면
+	// 1 회원가입 화면
 	public void signupView() {
 		
 		System.out.println("----- 회원가입 페이지 -----");
@@ -57,21 +60,100 @@ public class MainPage {
 		System.out.println("전화번호[-포함] > ");
 		String phone = sc.next();
 		
-		MemberController.getInstance().signupLogic(id, pw, name, phone);
+		boolean result = MemberController.getInstance().signupLogic(id, pw, name, phone);
+		
+		if(result) {
+			System.out.println("회원가입이 완료되었습니다");
+		} else {
+			System.out.println("회원가입이 불가합니다");
+		}
 	}
-	// 로그인 화면
+	// 2 로그인 화면
 	public void loginView() {
 		System.out.println("아이디 > ");
 		String id = sc.next();
 		System.out.println("비밀번호 > ");
 		String pw = sc.next();
 		
-		MemberController.getInstance().loginLogic(id, pw);
+		boolean result = MemberController.getInstance().loginLogic(id, pw);
+		
+		if(result) {
+			System.out.println("로그인이 완료되었습니다");
+		} else {
+			System.out.println("로그인이 불가합니다");
+		}
+	}
+	// 3 아이디 찾기
+	public void findById() {
+		
+		System.out.println("----- 아이디 찾기 페이지 -----");
+		System.out.println("이름 >");
+		String name = sc.next();
+		System.out.println("전화번호 >");
+		String phone = sc.next();
+		
+		String result = MemberController.getInstance().findId(name, phone);
+		
+		if(result != null) {
+			System.out.println("회원님의 아이디 : "+result);
+		} else {
+			System.out.println("경고] 정보가 일치한 아이디가 없습니다");
+		}
+		
+	}
+	// 4 비밀번호 찾기
+	public void findByPw() {
+		
+		System.out.println("----- 비밀번호 찾기 페이지 -----");
+		System.out.println("아이디 >");
+		String id = sc.next();
+		System.out.println("전화번호 >");
+		String phone = sc.next();
+		
+		String result = MemberController.getInstance().findPw(id, phone);
+		
+		if(result != null) {
+			System.out.println("회원님의 비밀번호 : "+result);
+		} else {
+			System.out.println("경고] 정보가 일치한 비밀번호가 없습니다");
+		}
+		
+		
 	}
 	
 	
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

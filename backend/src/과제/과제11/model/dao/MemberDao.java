@@ -151,17 +151,84 @@ public class MemberDao extends Dao {
 			
 			
 		} catch (Exception e) {
-			
 			System.out.println(e);
+		}
+
+		return null;	//	실패
+
+	}
+	
+	// 5 회원정보를 가지고 회원정보 찾기 / 회원번호가 존재하는 레코드 찾기
+	public MemberDto info(int mno) {
+		
+		try {
+			// 1. SQL작성
+			String sql = "select * from member where mno = ?";
+			// 2. SQL조작 객체
+			ps = conn.prepareStatement(sql);
+			// 3. SQL조작
+			ps.setInt(1, mno);
+			// 4. SQL실행		// 5. SQL결과 조작 객체
+			rs = ps.executeQuery();
+			// 6. SQL결과 조작	// 만일 다음 레코드가 존재하면 if실행
+			if( rs.next() ) {
+				// 현재 레코드를 DTO 만들기
+					// DTO클래스에 인스턴스 변수를 확인할 시
+					/*
+						1. 회원번호 2. 아이디 3. 비밀번호 4. 이름 5. 전화번호
+					 */
+				MemberDto dto = new MemberDto(
+						rs.getInt(1), 
+						rs.getString(2), 
+						rs.getString(3), 
+						rs.getString(4), 
+						rs.getString(5));
+				
+				return dto;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;	// 실패
+	}
+	
+	// 6 
+	public boolean infoUpdate( String newPw, int mno ) {
+		
+		try {
 			
+			String sql = "update member set mpw = ? where mno = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, newPw);
+			ps.setInt(2, mno);
+			ps.executeUpdate();	// 업데이트한 레코드 개수 반환
+			return true;
+
+		} catch (Exception e) {
+			System.out.println(e);
 		}
 		
-		
-		return null;	//	실패
-		
-		
-	}	
+		return false;	// 실패
+	}
 	
+	// 7
+	public boolean infoDelete(int mno) {
+		
+		try {
+			
+			String sql = "delete from member where mno = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, mno);
+			ps.executeUpdate();	// 업데이트한 레코드 개수 반환
+			return true;
+			
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return false;
+	}
 	
 	
 	

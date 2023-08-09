@@ -10,7 +10,7 @@ public class MemberDao extends Dao {
 	
 	// 0. 싱글톤 객체
 	private static MemberDao memberDao = new MemberDao();
-	public static MemberDao getInstance() { return memberDao; }
+	public static MemberDao getInstance() { return memberDao;}
 	private MemberDao() {}
 	
 	// 0 회원정보 Check SQL

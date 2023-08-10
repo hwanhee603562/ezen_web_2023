@@ -1,8 +1,11 @@
 package 과제.과제11.view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import 과제.과제11.controller.BoardController;
 import 과제.과제11.controller.MemberController;
+import 과제.과제11.model.dto.BoardDto;
 import 과제.과제11.model.dto.MemberDto;
 
 // 로그인이 완료된 이후의 화면
@@ -22,8 +25,12 @@ public class LoginPage {
 	public void loginMenu() {
 		
 		while(MemberController.getInstance().getLoginSession() != 0) {
+			
+			// 모든 게시물 보기 실행
+			boardPrint();
+			
 			System.out.println("\n\n======= 회원제 커뮤니티 =======");
-			System.out.print("1.로그아웃 2.회원정보 3.글쓰기 선택");
+			System.out.print("1.로그아웃 2.회원정보 3.글쓰기 선택 4.글조회 선택>");
 			
 			try {
 				
@@ -36,6 +43,8 @@ public class LoginPage {
 				if(ch==2) info();
 				
 				if(ch==3) boardWrite();
+				
+				if(ch==4) boardView();
 
 			} catch(Exception e) {
 				System.out.println("경고] 잘못 입력했습니다");
@@ -116,23 +125,53 @@ public class LoginPage {
 		}
 		
 	}
-	// 5 boardWrite		게시물쓰기 페이지
-	public void boardWrite() {
+	
+	
+	// 9 boardWrite		게시물쓰기 페이지
+	public void boardWrite(  ) {
+		System.out.println("----- post write -----");
+
+		System.out.println("제목 > ");
+		String title = sc.next();
+		System.out.println("내용 > ");
+		String content = sc.next();
+
+		boolean result =
+		BoardController.getInstance().boardWrite(title, content);
 		
+		if(result) {
+			System.out.println("안내] 글쓰기 등록");
+		} else {
+			System.out.println("안내] 글쓰기 실패 : 제목 필수 입력");
+		}	
 	}
-	// 6 boardPrint		모든 게시물 출력
+	// 10 boardPrint		모든 게시물 출력
 	public void boardPrint() {
+		System.out.println("----- post LIST -----");
+		// 1. 여러 개의 게시물을 요청해서 반환된 결과 저장
+		ArrayList<BoardDto> result = 
+			BoardController.getInstance().boardPrint();
 		
+		// 2. 출력
+		System.out.printf("%-3s %-4s %-15s %-10s %s \n", "no", "view", "date", "mid", "title");
+		for(int i=0; i<result.size(); i++) {
+			BoardDto dto = result.get(i);
+			
+			System.out.printf("%-3s %-4s %-15s %-10s %s \n", dto.getBno(), dto.getBview(), dto.getBdate(), dto.getMid(), dto.getBtitle());
+		}
 	}
-	// 7 boardView		개별 게시물 출력
+	// 11 boardView		개별 게시물 출력
 	public void boardView() {
 		
+		
+		
+		
 	}
-	// 8 boardUpdate	게시물 수정
+	// 12 boardUpdate	게시물 수정
 	public void boardUpdate() {
 		
 	}
-	// 9 boardDelete	게시물 삭제
+	// 13 boardDelete	게시물 삭제
 	public void boardDelete() {
 		
 	}

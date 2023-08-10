@@ -1,7 +1,7 @@
 /* ------------------------------------------------------------------ */
 drop database if exists sqldb6web;
 create database sqldb6web;
-use sqldb6web;
+use sqldb6web; 
 # 1. 회원테이블
 drop table if exists member;
 create table member(				# 아이돌 그룹

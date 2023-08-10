@@ -37,7 +37,7 @@ public class LoginPage {
 				int ch = sc.nextInt();
 				// 만약에 타입과 일치하지 않는 값을 입력하면 
 				// java.util.InputMismatchException 발생
-				
+				sc.nextLine();
 				if(ch==1) MemberController.getInstance().logOut();
 				
 				if(ch==2) info();
@@ -47,7 +47,7 @@ public class LoginPage {
 				if(ch==4) boardView();
 
 			} catch(Exception e) {
-				System.out.println("경고] 잘못 입력했습니다");
+				System.out.println("경고] 잘못 입력했습니다"+e);
 				sc =  new Scanner(System.in);
 				// 입력객체의 메모리를 새롭게 만들어줘야함
 			}
@@ -160,11 +160,28 @@ public class LoginPage {
 			System.out.printf("%-3s %-4s %-15s %-10s %s \n", dto.getBno(), dto.getBview(), dto.getBdate(), dto.getMid(), dto.getBtitle());
 		}
 	}
-	// 11 boardView		개별 게시물 출력
+	// 11 boardView		개별 게시물 출력(회원정보 출력과 방식은 동일)
 	public void boardView() {
+		System.out.println("----- post VIEW -----");
 		
+		// 1 보고자하는 게시물의 게시물번호를 입력받기 [식별번호]
+		System.out.println("게시물번호 : ");
+		int bno = sc.nextInt();
+		sc.nextLine();
+		// 2
+		BoardDto result = BoardController.getInstance().boardView(bno);
+		// 3 출력
+		System.out.printf("bno : %-3s view : %-3s mid : %-10s date : %-19s \n",
+				result.getBno(), result.getBview(), result.getMid(), result.getBdate());
+		System.out.printf("title : %s, \n", result.getBtitle());
+		System.out.printf("content : %s, \n", result.getBcontent());
 		
+		System.out.println("1.뒤로가기 2.수정 3.삭제 선택>");
+		int ch = sc.nextInt();
 		
+		if(ch == 1) {}
+		if(ch == 2) boardUpdate();
+		if(ch == 3) boardDelete();
 		
 	}
 	// 12 boardUpdate	게시물 수정
@@ -175,6 +192,15 @@ public class LoginPage {
 	public void boardDelete() {
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

@@ -58,7 +58,7 @@ public class MemberDao extends Dao {
 			ps.setString(2, dto.getMpw() );
 			ps.setString(3, dto.getMname() );
 			ps.setString(4, dto.getMphone() );
-			// 3. sql 실행 					[ ps.ps.executeUpdate() : SQL 실행 ]
+			// 3. sql 실행 					[ ps.executeUpdate() : SQL 실행 ]
 			ps.executeUpdate();
 			// 4. 리턴 [ 회원가입성공 =true / 회원가입실패 = false ] 
 			return true;

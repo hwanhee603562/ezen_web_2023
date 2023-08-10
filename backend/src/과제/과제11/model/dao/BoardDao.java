@@ -71,11 +71,8 @@ public class BoardDao extends Dao {
 				BoardDto boardDto = new BoardDto(
 					rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7));
 				
-				
 				list.add(boardDto);
-				
 			}
-			
 			
 		} catch (Exception e) {
 			
@@ -97,6 +94,7 @@ public class BoardDao extends Dao {
 			if( rs.next() ) {
 				BoardDto boardDto = new BoardDto(
 						rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7));
+				boardViewCount(bno);
 				return boardDto;
 			}
 			
@@ -108,8 +106,18 @@ public class BoardDao extends Dao {
 		
 	}
 	// 11-2 조회수 증가함수
-	public boolean boardViewCount() {
-		return false;
+	public void boardViewCount(int bno) {
+		
+		try {
+			
+			String sql = "update board set bview = bview+1 where bno = ?;";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, bno);
+			ps.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	

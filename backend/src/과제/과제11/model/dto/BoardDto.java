@@ -39,12 +39,24 @@ public class BoardDto {
 		this.mno = mno;
 	}
 	
+	// 글수정시 사용되는 생성자
+	public BoardDto(int bno, String title, String bcontent) {
+		super();
+		this.bno = bno;
+		this.btitle = title;
+		this.bcontent = bcontent;
+	}
+	
 	
 	
 
 	public int getBno() {
 		return bno;
 	}
+
+	
+
+
 
 	public void setBno(int bno) {
 		this.bno = bno;

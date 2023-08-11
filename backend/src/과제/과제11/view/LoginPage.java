@@ -3,6 +3,7 @@ package 과제.과제11.view;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import java1.day13.Ex1.Board;
 import 과제.과제11.controller.BoardController;
 import 과제.과제11.controller.MemberController;
 import 과제.과제11.model.dto.BoardDto;
@@ -178,18 +179,47 @@ public class LoginPage {
 		
 		System.out.println("1.뒤로가기 2.수정 3.삭제 선택>");
 		int ch = sc.nextInt();
+		sc.nextLine();
 		
 		if(ch == 1) {}
-		if(ch == 2) boardUpdate();
-		if(ch == 3) boardDelete();
+		if(ch == 2) boardUpdate( bno, result.getMno() );
+		if(ch == 3) boardDelete( bno, result.getMno() );
 		
 	}
-	// 12 boardUpdate	게시물 수정
-	public void boardUpdate() {
+	// 12 boardUpdate	게시물 수정 
+	// [ 게시물번호 식별해서 제목과 내용만 수정 -> 로그인된 사람과 작성자가 일치할 경우 가능 ]
+	public void boardUpdate( int bno, int mno ) {
 		
+		System.out.println("----- post write -----");
+
+		// 1 수정할 내용 입력
+		System.out.println("수정할 제목 > ");
+		String title = sc.nextLine();
+		System.out.println("수정할 내용 > ");
+		String content = sc.nextLine();
+		
+		// 2 
+		int result = BoardController.getInstance().boardUpdate(bno, mno, title, content);
+		
+		
+		if( result == 1 ) System.out.println("안내] 글 수정 성공");
+		else if(result == 2 ) System.out.println("안내] 글 수정 실패 : 관리자 오류");
+		else if(result == 3 ) System.out.println("안내] 본인 글만 수정 가능 합니다");
+		else if(result == 4 ) System.out.println("안내] 수정할 제목을 1~50글자 사이로 입력해주세요");
+		
+
 	}
 	// 13 boardDelete	게시물 삭제
-	public void boardDelete() {
+	// [ 게시물번호 식별해서 삭제 -> 로그인된 사람과 작성자가 일치할 경우 가능 ]
+	public void boardDelete( int bno, int mno ) {
+		
+		int result = BoardController.getInstance().boardDelete(bno , mno);
+		
+		if(result == 1) System.out.println("안내] 글 삭제 성공");
+		else if(result == 2) System.out.println("안내] 글 삭제 실패 : 관리자 오류");
+		else if(result == 3) System.out.println("경고] 본인 글만 삭제 가능합니다");
+		
+		
 		
 	}
 	

@@ -8,7 +8,7 @@ public class Ex2_예외다중catch {
 			// Integer.parseInt(문자열인숫자) : 문자열숫자 => 정수형숫자 정수로타입변환
 			// System.out.println( Integer.parseInt( "7" ) ); // 문자 7 => 정수 7  형변환 가능 
 			// System.out.println( Integer.parseInt( "ㄱ" ) ); // 문자 ㄱ => 정수 // NumberFormatException
-			
+			 
 		for( int i = 0 ; i<=array.length; i++ ) { // 인덱스:0~1 // 길이 : 2 // 인덱스 2는 없음 
 			try {
 				// System.out.println( array[i] ); // ArrayIndexOutOfBoundsException

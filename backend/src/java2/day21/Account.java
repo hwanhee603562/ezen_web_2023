@@ -6,9 +6,7 @@ public class Account {
 	private long balance;	// 잔고
 	
 	// 생성자
-	public Account() {
-		
-	}
+	public Account() {}
 
 	// 메서드
 	public long getBalance() {

@@ -9,7 +9,7 @@ public class Ex3_예외던지기 {
 		try {
 			findClass(); // 해당 클래스가 예외던지기 하기전에는 예외X
 		}catch (Exception e) { System.out.println( e ); }
-		
+		 
 	}
 	
 	// 
@@ -21,6 +21,5 @@ public class Ex3_예외던지기 {
 			// 2. throws		: 해당 메소드에 직접 처리 하지 않고 해당 메소드를 호출했던으로 예외 이동
 				// 웹에서는 자동 예외처리 가능[ 서블릿 클래스 ]
 	}
-	
 
 }

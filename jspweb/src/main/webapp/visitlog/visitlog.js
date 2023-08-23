@@ -32,6 +32,7 @@ function vwrite(){
 			console.log('통신성공');
 			if(r == true){
 				alert('등록성공');	
+				vread();
 				// 등록 성공시 HTML에서 작성한 INPUT 내용을 공백으로 채움
 				vwriterInput.value = '';
 				vpwdInput.value = '';
@@ -60,7 +61,7 @@ function vread(){
 		data : "",
 		success : function f(r){
 			console.log(r);
-			vread();
+			
 			// - 응답 받은 객체를 HTML에 출력
 				// 1. [어디에] 출력할 구역의 객체 호출
 				let output = document.querySelector('.visit_Bottom'); 
@@ -78,16 +79,15 @@ function vread(){
 								</div>
 								<div class="visitbox_center"> ${ r[i].vcontent } </div>
 								<div class="visitbox_bottom">
-									<button type="button">수정</button>
-									<button type="button">삭제</button>
+									<button onclick="vupdate( ${ r[i].vno } )" type="button">수정</button>
+									<button onclick="vdelete( ${ r[i].vno } )" type="button">삭제</button>
 								</div>
 							</div>`
 					}
 				
 				// 3. [대입] 출력객체 HTML형식 대입
 				output.innerHTML = html;
-				vread();
-			
+
 		},
 		error : function f(r){}
 		
@@ -97,12 +97,63 @@ function vread(){
 }
 
 // 3. update ( 수정 )
-function vupdate(){
+function vupdate( vno ){
+	console.log('vupdate() open : '+vno);
+	
+	// 1. 수정할 내용 입력
+	let vcontent = prompt('수정할 방문록내용 : ')
+	// 2. 비밀번호가 일치할 경우에도 수정하므로 확인용 비밀번호 입력받기
+	let vpwd = prompt('방문록비밀번호 : ')
+	
+	// 수정 준비물 : vno(누구를), vcontent(어떤 내용으로), vpwd(조건용 : 비밀번호일치여부)
+	$.ajax({
+		url : "/jspweb/visitlogController",
+		method : "put",
+		data : { vno : vno, vcontent : vcontent, vpwd : vpwd },
+		success : function f(r){
+			console.log('update통신성공');
+			if(r == true){
+				alert('수정성공');
+				vread();
+			} else {
+				alert('수정실패] 비밀번호가 일지하지 않습니다');
+			}
+		},
+		error : function f(r){
+			console.log(r);
+		}
+	})
+	
 	
 }
 
 // 4. delete ( 삭제 )
-function vdelete(){
+function vdelete( vno ){
+	console.log('vdelete() open : '+vno);
+	
+	// 1. 비밀번호가 일치할 경우에 수정하므로 확인용 비밀번호 입력받기
+	let vpwd = prompt('방문록비밀번호 : ')
+	
+	// 삭제 준비물 : vno(누구를), vpwd(조건용 : 비밀번호일치여부)
+	
+	$.ajax({
+		url : "/jspweb/visitlogController",
+		method : "delete",
+		data : {vno : vno, vpwd : vpwd},
+		success : function f(r){
+			console.log('delete통신성공');
+			if(r == true){
+				alert('수정성공');
+				vread();
+			} else {
+				alert('수정실패] 비밀번호가 일지하지 않습니다');
+			}
+		},
+		error : function f(r){
+			console.log(r);
+		}
+	})
+	
 	
 }
 

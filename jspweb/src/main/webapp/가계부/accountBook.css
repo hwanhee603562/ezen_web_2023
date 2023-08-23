@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/* 전체구역 */
+.accountBookWrap{
+	width: 800px;
+	margin: 0 auto;
+}
+
+
+/* 등록구역 */
+.accountBook_Top{
+	display: flex;
+	margin: 30px 0px;
+}
+.accountBook_Top *{
+	margin-left: 36px;
+}
+
+
+textarea{
+	width: 400px;
+	height: 40px;
+	border: 1px solid gray;
+	resize: none;	/* textarea 사이즈 변경 불가 */
+}
+.aprice{
+	width: 120px;
+	height: 40px;
+}
+.adate{
+	width: 120px;
+	height: 40px;
+}
+
+
+
+/* 출력구역 */
+.category{
+	display: flex;
+}
+
+.accountBook_Bottom{
+	width: 700px;
+}
+
+.comView{
+	display: flex;
+	border-bottom: 1px solid black;
+	margin-top: 20px;
+	margin-left: 100px;
+}
+.acontentView{
+	width: 300px;
+	margin-right: 30px;
+}
+.apriceView{
+	width: 40px;
+	margin-right: 30px;
+}
+.adateView{
+	width: 200px;
+	margin-right: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

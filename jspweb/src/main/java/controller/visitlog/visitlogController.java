@@ -64,22 +64,72 @@ public class visitlogController extends HttpServlet {
 		
 		// 4. 응답
 		// response.getWriter().print( result );	// 응답은 가능하나... js가 ArrayList타입 사용이 불가
-		System.out.println("호출 : "+jsonArray);
 		response.setContentType("application/json;charset=UTF-8");
 		response.getWriter().print( jsonArray );
 	}
 
 	// 3. 수정
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 1. 데이터를 요청한다
+			// request.getParameter("객체의 속성명")
+		int vno = Integer.parseInt( request.getParameter("vno") );
+		String vcontent = request.getParameter("vcontent");
+		String vpwd = request.getParameter("vpwd");
 
+		// 반드시 server.xml 에서 63번째줄, 코드에 기능을 추가하여야만 js와 통신이 가능하다
+		
+		// 2. (데이터가 많으면)객체화
+		// 3. Dao에게 전달 후 SQL결과를 받는다
+		boolean result = VisitDao.getInstance().vupdate(vno, vcontent, vpwd);
+		// 4. 결과를 AJAX에게 전달한다
+		response.setContentType("application/json;charset=UTF-8");
+		response.getWriter().print(result);
 	}
 
+	
 	// 4. 삭제
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// 1. 데이터를 요청한다
+		// request.getParameter("객체의 속성명")
+		int vno = Integer.parseInt( request.getParameter("vno") );
+		String vpwd = request.getParameter("vpwd");
+		
+		// 2. (데이터가 많으면)객체화
+		
+		// 3. Dao에게 전달 후 SQL결과를 받는다
+		boolean result = VisitDao.getInstance().vdelete(vno, vpwd);
+		
+		// 4. 결과를 AJAX에게 전달한다
+		response.setContentType("application/json;charset=UTF-8");
+		response.getWriter().print(result);
 	}
-
+	/* 
+	 	- HTTP서블릿클래스는 기본적으로 get, post, put, delete 함수 제공 
+	 	- 기본 톰캣서버는 get, post만 매개변수(데이터) 전달 가능
+	 	- put, delete 함수도 매개변수 전달 가능하도록 설정 [ 서버마다 설정 ] 
+	 	server.xml
+	 		63번줄 코드
+	 			<Connector connectionTimeout="20000" maxParameterCount="1000" port="80" protocol="HTTP/1.1" parseBodyMethods="POST,PUT,DELETE" URIEncoding="UTF-8"/>
+	 		put,delete에도 매개변수를 전달가능하도록  "parseBodyMethods="POST, PUT, DELETE" URIEncoding="UTF-8"추가
+	 */
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

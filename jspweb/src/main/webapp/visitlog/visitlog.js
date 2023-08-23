@@ -60,7 +60,7 @@ function vread(){
 		data : "",
 		success : function f(r){
 			console.log(r);
-			
+			vread();
 			// - 응답 받은 객체를 HTML에 출력
 				// 1. [어디에] 출력할 구역의 객체 호출
 				let output = document.querySelector('.visit_Bottom'); 
@@ -86,7 +86,7 @@ function vread(){
 				
 				// 3. [대입] 출력객체 HTML형식 대입
 				output.innerHTML = html;
-			
+				vread();
 			
 		},
 		error : function f(r){}

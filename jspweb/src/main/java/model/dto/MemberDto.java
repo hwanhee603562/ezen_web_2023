@@ -19,6 +19,15 @@ public class MemberDto {
 		this.mimg = mimg;
 	}
 	
+	public MemberDto(String mid, String mpwd, String memail, String mimg) {
+		super();
+		this.mid = mid;
+		this.mpwd = mpwd;
+		this.memail = memail;
+		this.mimg = mimg;
+	}
+	
+	
 	
 	// getter setter
 	public int getMno() {

@@ -14,7 +14,10 @@
 	<%@include file = "../header.jsp" %>
 	
 	<div>
-		아이디 : <input class="mid" type="text"> 
+		아이디 : <input onkeydown="idcheck()" class="mid" type="text"> 
+		<span class="idcheckbox"></span>
+		<br/>
+		
 		비밀번호 : <input class="mpwd" type="password">
 		비밀번호 확인 : <input class="mpwdconfirm" type="password">
 		이메일 : <input class="memail" type="text">

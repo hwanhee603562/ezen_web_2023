@@ -4,9 +4,7 @@ public class Applicant <T> {
 	
 	public T kind;
 	
-	public Applicant() {
-		// TODO Auto-generated constructor stub
-	}
+	public Applicant() {}
 	
 	public Applicant( T kind ) {
 		this.kind = kind;

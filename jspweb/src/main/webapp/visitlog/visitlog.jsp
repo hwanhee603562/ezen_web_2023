@@ -12,6 +12,10 @@
 	
 </head>
 <body>
+
+	<%@include file = "../header.jsp"%>
+
+
 	<!-- CRUD 기반의 비회원 게시판/방문록 구현 -->
 	<div class="visitwrap">	<!-- 전체 구역 -->
 			

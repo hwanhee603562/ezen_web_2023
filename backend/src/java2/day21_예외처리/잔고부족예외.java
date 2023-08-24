@@ -1,4 +1,4 @@
-package java2.day21;
+package java2.day21_예외처리;
 
 public class 잔고부족예외 extends Exception {
 

@@ -1,4 +1,4 @@
-package java2.day24.Ex1_제네릭;
+package java2.day24.Ex1;
 
 public class Box<T> {
 	// 클래스 안에서 사용할 매개타입

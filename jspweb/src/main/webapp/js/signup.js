@@ -53,8 +53,11 @@ function idcheck(){
 				data : { mid : mid },
 				success : r => {
 					console.log('통신성공');
-					if(r)	idcheckbox.innerHTML = '사용 중인 아이디 입니다';
-					else 	idcheckbox.innerHTML = '사용가능한 아이디 입니다';
+					if( r ){
+						idcheckbox.innerHTML = '사용 중인 아이디 입니다';
+					} else {
+						idcheckbox.innerHTML = '사용가능한 아이디 입니다';
+					}
 					
 				},
 				error : r => {
@@ -66,7 +69,7 @@ function idcheck(){
 			document.querySelector('.idcheckbox').innerHTML = '영문(소문자)+숫자 조합의 5~30글자 가능합니다';
 		}
 		
-
+		
 	// 3. 결과 출력
 	
 	

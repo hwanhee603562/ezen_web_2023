@@ -14,7 +14,7 @@
 	<%@include file = "../header.jsp" %>
 	
 	<div>
-		아이디 : <input onkeydown="idcheck()" class="mid" type="text"> 
+		아이디 : <input onkeyup="idcheck()" class="mid" type="text"> 
 		<span class="idcheckbox"></span>
 		<br/>
 		

@@ -48,7 +48,7 @@ public class MemberDao extends Dao {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, mid);
 			rs = ps.executeQuery();
-			if( rs.next() ) return true;	// 중복되는 아이디가 있을 경우
+			if( rs.next() ) return true;	// 중복되는 아이디가 있을 경
 			
 			return false;
 			

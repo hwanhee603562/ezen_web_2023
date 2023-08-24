@@ -24,6 +24,12 @@ public class MemberFindController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+
+	
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		// 1. 요청한다
 		String mid = request.getParameter("mid");
 		
@@ -35,12 +41,6 @@ public class MemberFindController extends HttpServlet {
 		// 4. 결과 응답한다
 		response.setContentType("application/json;charset=UTF-8");
 		response.getWriter().print( result );
-	
-	}
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	
 	}
 
 

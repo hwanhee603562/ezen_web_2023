@@ -11,10 +11,7 @@
    <div class="library_wrap">
       <div class="library_top">
          <div class="seats_table">
-            <button class="seat seats_i">1</button> <button class="seat seats">2</button>
-            <button class="seats">3</button> <button class="seat seats_i">4</button> 
-            <button class="seats_i">5</button> <button class="seats">6</button>
-            <button class="seats">7</button> <button class="seats">8</button>
+            
          </div>
          <div class="input_info">
             이름  <input class="name" type="text"> <br>

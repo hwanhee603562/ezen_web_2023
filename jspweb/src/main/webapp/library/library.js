@@ -10,8 +10,9 @@ function checkIn() {
    let name = document.querySelector('.name');
    let phone = document.querySelector('.phone');
    
-   if(name == '' || phone == '') {
+   if(name.value == '' || phone.value == '') {
       alert('빈칸을 모두 채워주시길 바랍니다.');
+      return;
    }
    
    let info = {
@@ -80,6 +81,7 @@ function checkOut() {
    let phone = document.querySelector('.phone').value;
    if(phone == '') {
       alert('전화번호를 입력해주시길 바랍니다.');
+      return;
    }
    
     $.ajax({
@@ -87,10 +89,8 @@ function checkOut() {
       method : "delete",
       data : {'lphone' : phone, 'lseat' : seats} ,
       success :	 function f(r){
-        if(r == true)
-        console.log('삭제 완료')
-        else 
-        console.log('삭제 실패')
+        if(r == 4) console.log('삭제 완료')
+        else console.log('삭제 실패')
         lread()
         } ,
       error : function f(r){console.log('삭제 에러'+r)}

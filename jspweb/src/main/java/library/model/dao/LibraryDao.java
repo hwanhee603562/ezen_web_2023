@@ -129,8 +129,9 @@ public class LibraryDao extends Dao {
 			String sql = "delete from library where lseat = ?";
 			ps = conn.prepareStatement(sql);
 			ps.setInt( 1, lseat );
+			ps.executeUpdate();
 			
-			return ps.executeUpdate();
+			return 4; 
 			
 		} catch (Exception e) {
 			System.out.println(e);

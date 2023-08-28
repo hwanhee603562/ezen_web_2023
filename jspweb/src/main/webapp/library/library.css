@@ -1,1 +1,93 @@
-@charset "UTF-8";
+@charseat "UTF-8";
+
+/* Reseat some default styles */
+body, div, span, input, button {
+    margin: 0;
+    padding: 0;
+    border: 0; 
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+/* Apply some basic styles */
+.library_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.library_top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 520px;
+    height: 250px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.seats_table {
+    display: flex;
+    /*flex-direction: column;*/
+    align-items: center;
+}
+
+.input_info{
+    font-size:20px;
+    font-weight:bold;
+    margin-top:70px;
+}
+
+.input_info .name{
+    margin-left:40px;
+}
+
+.input_info input{
+    
+    border-bottom:1px solid black;
+}
+
+.seats_i, .seats {
+    width:50px;
+    height:50px;
+    padding: 6px 10px;
+    margin: 2px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.seats_i {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.seats {
+    background-color: #f0f0f0;
+}
+
+.library_bottom button {
+    padding: 8px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.seat:focus {
+    background-color: black;
+}
+
+
+.library_bottom button:hover {
+    background-color: #0056b3;
+}

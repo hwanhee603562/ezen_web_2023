@@ -1,11 +1,18 @@
 package library.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import library.model.dao.LibraryDao;
+import library.model.dto.LibraryDto;
 
 /**
  * Servlet implementation class LibraryController
@@ -13,43 +20,71 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/LibraryController")
 public class LibraryController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+        
+
     public LibraryController() {
         super();
-        // TODO Auto-generated constructor stub
+ 
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    // 좌석 조회
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		System.out.println();
+		ArrayList<Integer> list = new ArrayList<>();
+		list = LibraryDao.getInstance().serchSeat();
+		
+		ObjectMapper objectMapper = new ObjectMapper();
+		String jsonArray = objectMapper.writeValueAsString( list );
+		
+		response.setContentType("application/json;charset=UTF-8");
+		response.getWriter().print( jsonArray );
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	// 좌석 입실
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String lname = request.getParameter("lname");
+		String lphone = request.getParameter("lphone");
+		int lseat = Integer.parseInt( request.getParameter("lseat") );
+		
+		LibraryDto libraryDto = new LibraryDto(lname, lphone, lseat);
+		int result = LibraryDao.getInstance().inSeat( libraryDto );
+		
+		response.setContentType("application/json; charset=UTF-8");
+		response.getWriter().print(result);
+		
 	}
 
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-	 */
+	// 좌석 퇴실
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		String lphone = request.getParameter("lphone");
+		int lseat = Integer.parseInt( request.getParameter("lseat") );
+
+		int result = LibraryDao.getInstance().deleteSeat( lphone, lseat );
+		
+		response.setContentType("application/json; charset=UTF-8");
+		response.getWriter().print(result);
+		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

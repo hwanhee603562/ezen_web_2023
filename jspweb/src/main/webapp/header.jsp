@@ -15,8 +15,10 @@
 			<!-- 절대경로 사용 -->
 			<li> <a href="http://192.168.17.17/jspweb/visitlog/visitlog.jsp"> 방문록 </a> </li>
 			<!-- 상대경로 사용 -->
-			<li> <a href="/jspweb/가계부/accountBook.jsp"> 가계부 </a> </li>
 			<li> <a href="/jspweb/member/signup.jsp"> 회원가입 </a> </li>
+			<li> <a href="/jspweb/가계부/accountBook.jsp"> 과제1:가계부 </a> </li>
+			<li> <a href="/jspweb/library/library.jsp"> 과제2:도서관열람실 </a> </li>
+			
 		</ul>
 	</div>
 

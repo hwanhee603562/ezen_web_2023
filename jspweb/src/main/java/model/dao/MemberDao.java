@@ -40,17 +40,17 @@ public class MemberDao extends Dao {
 	// 5. 내정보 호출
 	
 	// 6. 아이디/이메일 중복검사
-	public boolean findId( String mid ) {
+		// [인수 : 검사할아이디 / 반환 : true(중복있음), false(중복없음)]
+		// - type : 필드명	/	data : 필드에서 찾을 값
+	public boolean findIdorEmail( String type, String data ) {
 		
 		try {
-			String sql = "select * from member where mid = ?"; 	
+			String sql = "select * from member where "+type+" = ?"; 	
 			
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, mid);
+			ps.setString(1, data);
 			rs = ps.executeQuery();
-			if( rs.next() ) return true;	// 중복되는 아이디가 있을 경
-			
-			return false;
+			if( rs.next() ) return true;	// 중복되는 아이디가 있을 경우 
 			
 		} catch (Exception e) {
 			System.out.println(e);

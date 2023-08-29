@@ -39,7 +39,9 @@
 
 		
 		<!-- 프로필 -->
-		프로필 :<input class="mimg" type="file"> 
+		프로필 :<input onchange="preimg( this )" class="mimg" type="file"><br/>
+		<!-- <태그명 이벤트명="함수명( this )" /> --> 
+		<img class="preimg" alt="" src="">	<!-- 등록 사진을 미리보기할 사진 태그 -->
 		<br/>
 		<button onclick="signup()" type="button"> 회원가입 </button>
 	</div>

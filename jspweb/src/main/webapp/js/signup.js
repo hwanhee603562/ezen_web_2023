@@ -185,8 +185,7 @@ function emailcheck(){
 // 4. 인증요청 버튼을 눌렀을 때
 function authReq(){
 	
-	// 1. 'authbox' div 호출
-	authbox = document.querySelector('.authbox');
+	let authbox = document.querySelector('.authbox');
 	
 	// 2. auth html 구성
 	let html = `<span class="timebox"> 02:00 </span>
@@ -194,11 +193,45 @@ function authReq(){
 				<button onclick="auth()" type="button">인증</button>`
 	
 	// 3. auth html 대입
-	authbox.innerHTML = html;	
+	authbox.innerHTML = html;
+		
 	// 4. 타이머 실행
-	authcode = '1234';	// 인증코드 '1234' 테스트용
-	timer = 10;			// 인증 제한시간 10초 테스트용
-	settimer();			// 타이머 실행
+	authcode = r;	// 인증코드에 난수 대입
+	timer = 120;	// 인증 제한시간 120초 설정
+	settimer();		// 타이머 실행
+	
+	/*
+	// -- 인증요청시 서블릿통신[ 인증코드 생성, 이메일 전송 ]
+	$.ajax({
+		url : "/jspweb/AuthSendEmailController",
+		method : "get",
+		data : { memail : document.querySelector('.memail').value },
+		success : r => {
+			console.log('인증코드 : '+r);
+			
+			// 1. 'authbox' div 호출
+			let authbox = document.querySelector('.authbox');
+			
+			// 2. auth html 구성
+			let html = `<span class="timebox"> 02:00 </span>
+						<input class="ecode" type="text"/>
+						<button onclick="auth()" type="button">인증</button>`
+			
+			// 3. auth html 대입
+			authbox.innerHTML = html;
+				
+			// 4. 타이머 실행
+			authcode = r;	// 인증코드에 난수 대입
+			timer = 120;	// 인증 제한시간 120초 설정
+			settimer();		// 타이머 실행
+		},
+		error : r => {
+			console.log(r);
+		}
+	})
+	*/
+	
+
 }
 
 // 4번, 5번, 6번 함수에서 공통적으로 사용할 변수[전역변수]
@@ -261,6 +294,42 @@ function auth(){
 		// 1. 인증코드불일치 알림
 		document.querySelector('.emailcheckbox').innerHTML = `인증코드 불일치`;
 	}
+}
+
+
+
+
+// 7. 첨부파일에 사진 등록시 등록 사진을 HTML 표시하기 < 등록사진을 미리보기 기능 >
+function preimg( object ){
+	console.log('사진 선택 변경');
+	console.log( object );
+		// 이벤트 실행시킨 태그의 DOM객체를 인수로 받음
+	console.log( document.querySelector('.mimg') );
+	// 1. input태그의 속성 [ type, class, onchange, name 등등 ]
+	// 1. input태그 이면서 type="file" 이면 추가적인 속성, 
+		// .files : input type="file" 에 선택한 파일 정보를 리스트로 받음
+	console.log( object.files );
+		// 리스트 중에서 하나의 파일만 가져오기
+	console.log( object.files[0] );	
+	
+	// --- 해당 파일을 바이트코드 변환
+	// 2. JS 파일클래스 선언
+		// 파일 읽기 클래스를 이용한 파일읽기객체 선언
+	let file = new FileReader();	
+	
+	// 3. 파일 읽어오기 함수 제공
+		// input에 등록된 파일리스트 붕 1개를 파일객체로 읽어오기
+	file.readAsDataURL( object.files[0] );	
+	console.log( file );
+	
+	// 4. 읽어온 파일을 해당 html img태그에 load
+	file.onload = e => {
+		console.log( e.target.result );	// 읽어온 파일의 바이트코드
+		document.querySelector('.preimg').src = e.target.result;	// img src 속성에 대입
+	}
+	
+	
+	
 }
 
 

@@ -40,9 +40,11 @@
 	
 			
 			<!-- 프로필 -->
-			프로필 :<input onchange="preimg( this )" name="mimg" class="mimg" type="file"><br/>
+				<!--  accept="image/*" = image 확장자만 업로드 가능  -->
+				<!--  accept="video/*" = video 확장자만 업로드 가능  -->
+			프로필 :<input onchange="preimg( this )" name="mimg" class="mimg" type="file" accept="image/*"><br/>
 			<!-- <태그명 이벤트명="함수명( this )" /> --> 
-			<img class="preimg" alt="" src="" width="100px">	<!-- 등록 사진을 미리보기할 사진 태그 -->
+			<img class="preimg" alt="" src="img/default.webp" width="100px">	<!-- 등록 사진을 미리보기할 사진 태그 -->
 			<br/>
 			<button onclick="signup()" type="button"> 회원가입 </button>
 		</form>

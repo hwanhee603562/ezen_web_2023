@@ -29,8 +29,19 @@ public class MemberinfoController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// -----------------------------파일 업로드 : 서버폴더에------------------------------
+	//※	실제로는 서버용pc, 개발자용pc로 나누어져있는데, 현재는 한 대로 서버,개발용 모두 사용하고 있기 때문에
+	//	서버경로가 개발자용pc에 있다고 오해해선 안된다
+	//	* 실제로 클라이언트용, 서버용,
+		
 		// 첨부파일 저장할 경로
-		String uploadpath = "C:\\Users\\504\\git\\ezen_web_2023\\jspweb\\src\\main\\webapp\\member\\img";
+			// 1. 개발자 pc경로 업로드 [문제발생 : 개발자pc에 업로드하면 업로드파일을 서버로 빌드]
+		//String uploadpath = "C:\\Users\\504\\git\\ezen_web_2023\\jspweb\\src\\main\\webapp\\member\\img";
+			// 2. 서버 pc경로 업로드 [사용자가 바로 서버pc 업로드]
+		//String uploadpath = "C:\\Users\\504\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps";
+			// 3. 서버 pc경로 ( 상대경로 = 서버경로 찾아주는 함수 )
+				// 서버에 build(배포)된 파일/폴더의 경로 찾기
+				// request.getSession().getServletContext().getRealPath("프로젝트명 이하 경로");
+		String uploadpath = request.getSession().getServletContext().getRealPath("/member/img");
 		
 		// 첨부파일 전송 했을 때
 			// 1. 첨부파일 서버 PC에 업로드( cos 라이브러리 )
@@ -60,6 +71,10 @@ public class MemberinfoController extends HttpServlet {
 		//String mimg = request.getParameter("mimg");
 		String mimg = multi.getFilesystemName("mimg");
 		System.out.println(mimg);
+		
+		
+		// * 만약에 사진업로드 안했으면 기본프로필 사용하도록 변경 = default.webp
+		if( mimg == null ) mimg = "default.webp";
 		
 		// 2. (선택) 객체화
 		MemberDto memberDto = new MemberDto(mid, mpwd, memail, mimg);		

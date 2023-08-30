@@ -390,15 +390,22 @@ function signup(){
 			contentType : false,	// form 객체 타입
 			processData : false,
 			success : r => {
-				console.log(r);
+				
+				if(r){ // 회원가입 성공
+					alert('회원가입 성공');
+					location.href = '/jspweb/member/login.jsp';	// 하이퍼링크
+					console.log('111');
+				} else { // 회원가입 실패
+					alert('회원가입 실패');
+				}
 			},
 			error : e => {
-				console.log(e);
-				}
+				alert('회원가입 실패 [관리자 문의]');
+			}
 		})
 		
 	} else {
-		console.log('회원가입 불가능');
+		alert('정상적으로 입력이 안된 내용이 있습니다');
 	}
 }
 

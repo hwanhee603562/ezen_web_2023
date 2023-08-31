@@ -387,6 +387,16 @@ function signup(){
 			url : "/jspweb/MemberinfoController",
 			method : "post",		// 첨부파일 form 전송은 무조건 post 방식
 			data : signupData,		// FormData 객체를 전송
+			// 폼 전송타입 : 문자 x json X, multipart/form-data
+			/*
+				1. text/html			: 문자타입[기본값]
+				2. application			: json타입
+				3. multipart/form-data	: 대용량 form 전송 타입
+					- contentType: false,
+					- processData: false,
+			
+			*/
+			 
 			contentType : false,	// form 객체 타입
 			processData : false,
 			success : r => {

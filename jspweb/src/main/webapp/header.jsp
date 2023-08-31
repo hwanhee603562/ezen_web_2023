@@ -28,21 +28,16 @@
 			<li> <a href="/jspweb/hrm/hrm.jsp"> (과3):직원관리 </a> </li>
 		</ul>
 		
+		
 		<ul class="submenu">	<!-- 서브메뉴 : 로그인했을 때와 안했을 때 -->
-			<li> <a href="/jspweb/member/signup.jsp"> 회원가입 </a> </li>
-			<li> <a href="/jspweb/member/login.jsp"> 로그인 </a> </li>
-			<li> <a href="#"> 로그아웃 </a> </li>
-			<li> <a href="#"> 마이페이지 </a> </li>
-			<li> <img class="hmimg" alt="" src="/jspweb/member/img/default.webp"> </li>
 		</ul>
 		
-
 	</div>	<!-- 헤더 end -->
 
 	<!-- 최신 JQUERY 불러오기 : AJAX메소드 사용하기 위해 : JS가 외부로부터 통신하기 위해 -->
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	
-	
+	<script src="/jspweb/js/header.js" type="text/javascript"></script>
 	
 </body>
 </html>

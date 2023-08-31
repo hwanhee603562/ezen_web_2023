@@ -41,7 +41,6 @@
 				<button onclick="uploadInfo()"> 직원등록 </button>
 			</div>
 		</form>
-
 		
 		<!-- 하단 직원정보 출력 구역 -->
 		<div class="bottomInfo">
@@ -54,14 +53,9 @@
 				<th> 등록일 </th>
 			</table>
 		</div>
-		
-
-		
+				
 	</div><!-- 전체구역 end -->
-	
-	
-	
-	
+
 	<script src="../hrm/hrm.js" type="text/javascript"></script>
 
 </body>

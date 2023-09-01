@@ -8,6 +8,8 @@
 <link href="library.css" rel="stylesheet">
 </head>
 <body>
+	<%@include file = "../header.jsp" %>
+
    <div class="library_wrap">
       <div class="library_top">
          <div class="seats_table">

@@ -20,7 +20,7 @@
 		
 		<ul class="mainmenu">	<!-- 본메뉴 -->
 			<li> <a href="http://192.168.17.17/jspweb/visitlog/visitlog.jsp"> 방문록 </a> </li>
-			<li> <a href="#"> 기능1 </a> </li>
+			<li> <a href="/jspweb/board/list.jsp"> 게시판 </a> </li>
 			<li> <a href="#"> 기능2 </a> </li>
 			<li> <a href="#"> 기능3 </a> </li>
 			<li> <a href="/jspweb/가계부/accountBook.jsp"> (과1):가계부 </a> </li>

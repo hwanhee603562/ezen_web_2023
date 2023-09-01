@@ -1,88 +1,85 @@
-@charset "UTF-8";
-
-*{
-	margin: 0;
-	padding: 0;
+/* Apply styles to the entire page */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
 }
 
-/* 전체구역 */
-.accountBookWrap{
-	width: 800px;
-	margin: 0 auto;
+/* Style for the main wrapper */
+.accountBookWrap {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
-/* 등록구역 */
-.accountBook_Top{
-	display: flex;
-	margin: 30px 0px;
-}
-.accountBook_Top *{
-	margin-left: 36px;
+/* Style for the writing section */
+.accountBook_Top {
+  margin-bottom: 20px;
 }
 
-
-textarea{
-	width: 400px;
-	height: 40px;
-	border: 1px solid gray;
-	resize: none;	/* textarea 사이즈 변경 불가 */
-}
-.aprice{
-	width: 120px;
-	height: 40px;
-}
-.adate{
-	width: 120px;
-	height: 40px;
+.acontent,
+.aprice,
+.adate {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-
-
-/* 출력구역 */
-.category{
-	display: flex;
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.accountBook_Bottom{
-	width: 700px;
+/* Style for the category headers */
+.category {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f0f0f0;
+  padding: 10px;
+  font-weight: bold;
 }
 
-.comView{
-	display: flex;
-	border-bottom: 1px solid black;
-	margin-top: 20px;
-	margin-left: 100px;
-}
-.acontentView{
-	width: 300px;
-	margin-right: 30px;
-}
-.apriceView{
-	width: 40px;
-	margin-right: 30px;
-}
-.adateView{
-	width: 200px;
-	margin-right: 30px;
+/* Style for the output section */
+.accountBook_Bottom {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
 }
 
+.comView {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
 
+.abutton button {
+  background-color: #dc3545;
+  margin-left: 10px;
+}
 
+/* Style for responsive design */
+@media screen and (max-width: 600px) {
+  .accountBookWrap {
+    padding: 10px;
+  }
 
+  .category {
+    display: none;
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  .comView {
+    flex-direction: column;
+    text-align: center;
+  }
+}

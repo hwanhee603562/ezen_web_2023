@@ -14,7 +14,6 @@ function getMemberInfo(){
 		method: "get",
 		data: { type : "info" },
 		success: r => {
-			console.log(r);
 			
 			// - 로그인 상태에 따른 서로 다른 html 구성
 			let submenu = document.querySelector('.submenu');

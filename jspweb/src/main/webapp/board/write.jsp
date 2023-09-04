@@ -20,6 +20,8 @@
 			카테고리 : 	<select name="bcno" class="bcno">
 							<!-- 게시물에 저장되는 카테고리 정보는 카테고리를 x 카테고리명번호 [FK] -->
 							<option value="1"> 공지사항 </option>
+							<option value="2"> 자유게시판 </option>
+							<option value="3"> 노하우 </option>
 						</select>
 			제목 : <input type="text" name="btitle" class="btitle">
 			내용 : <textarea name="bcontent" class="bcontent"></textarea>

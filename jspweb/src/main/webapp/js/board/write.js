@@ -8,6 +8,7 @@ function bwrite(){
 	// 2. form 객체화 하기
 	let formData = new FormData( form );
 	
+	
 	// 3. .ajax 로 대용량 form 전송하기
 	$.ajax({
 		url: "/jspweb/BoardInfoController",

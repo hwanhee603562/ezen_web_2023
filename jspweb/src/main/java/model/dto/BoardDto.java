@@ -2,7 +2,7 @@ package model.dto;
 
 public class BoardDto {	// 게시물, 카테고리
 	
-	private int bno;			// 번호
+	private int bno;			// 게시물 번호
 	private String btitle;		// 제목
 	private String bcontent;	// 내용
 	private String bfile;		// 첨부파일
@@ -14,8 +14,13 @@ public class BoardDto {	// 게시물, 카테고리
 	private String mid;			// 작성자 회원아이디
 	private String bcname;		// 카테고리명
 	private String mimg;		// 작성자 프로필
+	// - 조회대상자와 게시물작성자 일치 여부 [ 본인글 체크여부 ]
+	private boolean ishost;
 	
 	
+	
+	
+
 	// 생성자
 	public BoardDto() {}
 	
@@ -63,6 +68,15 @@ public class BoardDto {	// 게시물, 카테고리
 		this.mimg = mimg;
 	}
 	
+	// 게시글 수정시 사용되는 생성자
+	public BoardDto(int bno, String btitle, String bcontent, String bfile, int bcno) {
+		super();
+		this.bno = bno;
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+		this.bfile = bfile;
+		this.bcno = bcno;
+	}
 	
 	
 	
@@ -154,7 +168,15 @@ public class BoardDto {	// 게시물, 카테고리
 	public void setBcname(String bcname) {
 		this.bcname = bcname;
 	}
+	
+	public boolean isIshost() {
+		return ishost;
+	}
 
+	public void setIshost(boolean ishost) {
+		this.ishost = ishost;
+	}
+	
 	@Override
 	public String toString() {
 		return "BoardDto [bno=" + bno + ", btitle=" + btitle + ", bcontent=" + bcontent + ", bfile=" + bfile

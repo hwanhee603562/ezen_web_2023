@@ -18,7 +18,7 @@
 		<div class="accountBook_Top"><!-- 쓰기 구역 -->
 			<textarea class="acontent" placeholder="내용"></textarea>
 			<input class="aprice" type="text" placeholder="금액">
-			<input class="adate" type="datetime" placeholder="날짜">
+			<input class="adate" type="datetime" placeholder="날짜 형식 : 0000/00/00">
 			<button onclick="awrite()" type="button">등록</button>
 		</div>
 		

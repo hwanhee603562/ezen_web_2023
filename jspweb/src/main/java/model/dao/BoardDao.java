@@ -35,17 +35,56 @@ public class BoardDao extends Dao {
 		return false;
 	}
 	
-	// 2. 모든 글 출력
-	public ArrayList<BoardDto> getList(){
-		
-		ArrayList<BoardDto> list = new ArrayList<>();
+	// 2-2 게시물 수 출력
+	public int getTotalSize( int bcno ) {
 		
 		try {
+			String sql = "select count(*) from board b ";
+			
+			// 만약에 전체보기가 아니면 [ 카테고리별 개수 ]
+			if( bcno != 0 ) sql += " where b.bcno = "+ bcno;
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if( rs.next() ) return rs.getInt(1);
+			
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return 0;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	// 2. 모든 글 출력
+	public ArrayList<BoardDto> getList( int bcno, int listsize, int startrow ){
+		
+		ArrayList<BoardDto> list = new ArrayList<>();
+		System.out.println( "listsize "+listsize );
+		try {
+			
 			String sql = "select b.*, m.mid, m.mimg, bc.bcname "
 					+ "from board b natural join bcategory bc natural "
-					+ "join member m order by b.bdate desc";
+					+ "join member m";
+			
+			if( bcno != 0 ) {	// 만약에 카테고리를 선택했으면 [전체보기가 아니면]
+				sql += " where b.bcno = "+bcno;
+			}
+			// 뒷 부분 공통 SQL
+			sql += " order by b.bdate desc limit ?, ?";
+				// order by b.bdate desc	: 최신글부터 정렬/출력
+				// limit ?, ?				: 시작번호부터 listsize까지 출력
 			
 			ps = conn.prepareStatement(sql);
+			ps.setInt(1, startrow);
+			ps.setInt(2, listsize);
+
 			rs = ps.executeQuery();
 			while( rs.next() ) {
 				BoardDto boardDto = new BoardDto(

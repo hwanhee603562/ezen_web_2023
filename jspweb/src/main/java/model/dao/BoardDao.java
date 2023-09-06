@@ -35,18 +35,26 @@ public class BoardDao extends Dao {
 		return false;
 	}
 	
+	
 	// 2-2 게시물 수 출력
-	public int getTotalSize( int bcno ) {
+	public int getTotalSize( int bcno, String key, String keyword ) {
 		
 		try {
-			String sql = "select count(*) from board b ";
+			String sql = "select count(*) from board b natural join member m";
 			
 			// 만약에 전체보기가 아니면 [ 카테고리별 개수 ]
 			if( bcno != 0 ) sql += " where b.bcno = "+ bcno;
+			
+			// 만약에 검색이 있으면
+			if( !key.isEmpty() && !keyword.isEmpty() ) {
+				if( bcno != 0 ) sql += " and ";
+				else sql += " where ";
+				sql += " "+key+" like '%"+keyword+"%' ";
+			}
+			
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			if( rs.next() ) return rs.getInt(1);
-			
 			
 		} catch (Exception e) {
 			System.out.println(e);
@@ -56,14 +64,8 @@ public class BoardDao extends Dao {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
 	// 2. 모든 글 출력
-	public ArrayList<BoardDto> getList( int bcno, int listsize, int startrow ){
+	public ArrayList<BoardDto> getList( int bcno, int listsize, int startrow, String key, String keyword ){
 		
 		ArrayList<BoardDto> list = new ArrayList<>();
 		try {
@@ -72,9 +74,20 @@ public class BoardDao extends Dao {
 					+ "from board b natural join bcategory bc natural "
 					+ "join member m";
 			
-			if( bcno != 0 ) {	// 만약에 카테고리를 선택했으면 [전체보기가 아니면]
-				sql += " where b.bcno = "+bcno;
+			// 만약에 카테고리를 선택했으면 [전체보기가 아니면]
+			if( bcno != 0 )	sql += " where b.bcno = "+bcno;
+			
+			// 만약에 검색이 있으면 검색기능(like문) 실행
+				// 문자열.isEmpty()	: 문자열이 비어 있으면 null => true 반환
+			if( !key.isEmpty() && !keyword.isEmpty() ) {
+				
+				// 만약에 카테고리 내 검색이면
+				if( bcno != 0 ) sql += " and";
+				else sql += " where ";	// [ 카테고리가 전체 검색이면 where 구문이 없었으므로 where 추가 ]
+				
+				sql += " "+key+" like '%"+keyword+"%'";
 			}
+
 			// 뒷 부분 공통 SQL
 			sql += " order by b.bdate desc limit ?, ?";
 				// order by b.bdate desc	: 최신글부터 정렬/출력

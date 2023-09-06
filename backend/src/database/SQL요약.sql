@@ -41,9 +41,9 @@
 				* 두 테이블 1개 필드 이상의 값이 동일한 존재!! [ *대부분 PK-FK 관계 ]
 				1. 조건 JOIN [ 교집합 ]
 					select * from 테이블명A , 테이블명B where 테이블명A.필드명 = 테이블명B.필드명 
-					select * from 테이블명A  a , 테이블명B b where a.필드명 = b.필드명 
+					select * from 테이블명A a , 테이블명B b where a.필드명 = b.필드명 
 				2. 자연 조인 [ 교집합 ]
-					select * from 테이블명A  a natual join 테이블명B b 
+					select * from 테이블명A a natural join 테이블명B b 
 				 
 		3. update
 			update 테이블명 set 수정할필드명 = 수정할값 where 조건 

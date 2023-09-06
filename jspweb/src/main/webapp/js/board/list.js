@@ -1,4 +1,14 @@
 
+/* 게시물 조회 조건 객체 */
+let pageObject = { type : 1, bcno : 0, listsize : 10, page : 1, page : 1, key : '', keyword : '' }
+	// * type : (1:전체조회, 2:개별조회)
+	// * bcno : 조회할 카테고리 번호 [ 기본값은 전체보기 0 ]
+	// * listsize : 하나의 페이지에 최대표시할 게심루수 [ 기본값은 10개 ]
+	// * key : 검색할 기준 필드명
+	// * keyword :검색할 데이터
+
+
+// 1. 게시물 작성
 function onWrite(){
 	
 	if( loginState ){
@@ -12,28 +22,6 @@ function onWrite(){
 	// - 로그인이면 쓰기 페이지로 이동
 	
 }
-
-
-
-/* 게시물 조회 조건 객체 */
-let pageObject = { type : 1, bcno : 0, listsize : 10, page : 1 }
-	// * type : (1:전체조회, 2:개별조회)
-	// * bcno : 조회할 카테고리 번호 [ 기본값은 전체보기 0 ]
-	// * listsize : 하나의 페이지에 최대표시할 게심루수 [ 기본값은 10개 ]
-
-// 3. 카테고리 버튼을 클릭했을 때
-function onCategory( bcno ){
-	pageObject.bcno = bcno;	// 조회조건 객체 내 카테고리번호를 변경
-	getList(1);				// 조건이 변경되었기 때문에 다시 출력 [ 재랜더링/새로고침 ]
-}
-// 4. 한 페이지 최대 표시할 개수를 변경했을 때
-function onlistSize(){
-	// 선택된 게시물 수를 조회조건 객체 저장
-	pageObject.listsize = document.querySelector('.listsize').value;
-	getList(1);	// 기본 페이지 번호 1
-}
-
-
 
 // 2. 모든 글 조회 [ js열렸을 때 1회 자동실행 ]
 	// 페이지번호 클릭
@@ -111,15 +99,48 @@ function getList( page ){
 			// ----------------- 3. 게시물 수 출력
 			let boardcount = document.querySelector('.boardcount');
 			
-			boardcount.innerHTML = `총게시물 수 : ${ r.totalsize }`;
-			
-			
-
+				// 1. 검색이 있을 때
+			if( pageObject.key == '' && pageObject.keyword == '' ){
+				boardcount.innerHTML = `총 게시물 수 : ${ r.totalsize }`
+			} else {	// 2. 없을 때
+				boardcount.innerHTML = `검색된 게시물 수 : ${ r.totalsize }`
+			}
+				
 		},
 		error: e => {}
 	})
 
 }
+
+	
+// 3. 카테고리 버튼을 클릭했을 때
+function onCategory( bcno ){
+	pageObject.bcno = bcno;	// 조회조건 객체 내 카테고리번호를 변경
+	
+	// 검색기능 해제
+	pageObject.key = '';	
+	pageObject.keyword = '';	
+	
+	getList(1);				// 조건이 변경되었기 때문에 다시 출력 [ 재랜더링/새로고침 ]
+}
+
+
+// 4. 한 페이지 최대 표시할 개수를 변경했을 때
+function onlistSize(){
+	// 선택된 게시물 수를 조회조건 객체 저장
+	pageObject.listsize = document.querySelector('.listsize').value;
+	getList(1);	// 기본 페이지 번호 1
+}
+
+// 5. 검색 버튼을 클릭했을 때
+function onSearch(){
+	pageObject.key = document.querySelector('.key').value;
+	pageObject.keyword = document.querySelector('.keyword').value;
+	getList(1);
+	
+}
+
+
 
 
 

@@ -26,7 +26,6 @@ public class BoardInfoController extends HttpServlet {
 
     public BoardInfoController() {
         super();
-
     }
     
     // 1. 전체조회 2. 개별조회
@@ -41,6 +40,10 @@ public class BoardInfoController extends HttpServlet {
 		// 전체조회
 		if( type.equals("1") ) {
 			
+			// ---------------------- 7. 검색처리
+			String key = request.getParameter("key");
+			String keyword = request.getParameter("keyword");
+			
 			// ---------------------- 1. 카테고리
 			int bcno = Integer.parseInt( request.getParameter("bcno") );
 			// ---------------------- 2. 출력할 게시물 수/ 하나의 페이지의 최대 게시물 수
@@ -52,7 +55,7 @@ public class BoardInfoController extends HttpServlet {
 			// ---------------------- 4. 마지막 페이지번호
 				// 1. 마지막 페이지번호/총페이지수 = 전체게시물수 / 페이지별최대게시물수(listsize)
 				// 2. 전체 게시물 수
-			int totalsize = BoardDao.getInstance().getTotalSize(bcno);
+			int totalsize = BoardDao.getInstance().getTotalSize(bcno, key, keyword);
 				// 3. 마지막 페이지번호 / 총페이지수
 			int totalpage = totalsize%listsize == 0 ? totalsize/listsize : totalsize/listsize+1;
 					// 게시물수 : 10, 페이지별 2개씩 출력 => 총페이지수 5[몫]
@@ -79,13 +82,13 @@ public class BoardInfoController extends HttpServlet {
 			if( endbtn >= totalpage ) endbtn = totalpage;
 			
 			// ---------------------- 6. pageDto 구성
-			ArrayList<BoardDto> result = BoardDao.getInstance().getList( bcno, listsize, startrow );
+			ArrayList<BoardDto> result = BoardDao.getInstance().getList( bcno, listsize, startrow, key, keyword );
 
 			PageDto pageDto = new PageDto(
 				page, listsize, startrow, totalsize, totalpage, startbtn, endbtn, result); 
 			
 			// * java객체 --> js객체[JSON] 형식의 문자열로 변환
-			json =  objectMapper.writeValueAsString( pageDto );
+			json = objectMapper.writeValueAsString( pageDto );
 
 		}	// 개별조회 
 		else if( type.equals("2") ) {

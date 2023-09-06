@@ -58,13 +58,16 @@
 			
 			
 			<!-- 6. 검색구역 -->
-			<select class="bbtn">	<!-- 검색할 필드명 -->
-				<option> 제목 </option>
-				<option> 내용 </option>
-				<option> 작성자 </option>
+			<select class="bbtn key">	<!-- 검색할 필드명 -->
+				<!-- value = "SQL에서 사용할 필드명 기준" -->
+					<!-- 자바, sql에서 String 형식으로 사용하기 위해 value를 java, sql 형식으로 지정 -->
+					<!-- DAO에서 처리할 때 별칭으로 사용하기 위해 'b.'을 사용 -->
+				<option value="b.btitle"> 제목 </option>
+				<option value="b.bcontent"> 내용 </option>
+				<option value="m.mid"> 작성자 </option>
 			</select>
 			<input class="keyword" type="text"> <!-- 검색 내용 -->
-			<button class="bbtn" type="button"> 검색 </button>
+			<button onclick="onSearch()" class="bbtn" type="button"> 검색 </button>
 			
 		</div>
 	</div>

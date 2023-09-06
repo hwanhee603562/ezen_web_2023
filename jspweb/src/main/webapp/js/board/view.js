@@ -1,4 +1,4 @@
-
+// /jspweb/FileDownLoad
 // 1. list.jsp에서 클릭된 제목의 bno를 전달받아 게시물 1개 가져오기
 getBoard();
 function getBoard(){
@@ -25,8 +25,11 @@ function getBoard(){
 					부가정보2 : <div> ${r.mid}, <img src="/jspweb/member/img/${r.mimg}" width="50px" /> </div>
 					제목 : <div> ${r.btitle} </div>
 					내용 : <div> ${r.bcontent} </div>
-					첨부파일 : <div> ${r.bfile} </div>
+					첨부파일 : <div> <a href="/jspweb/FileDownLoad?filename=${r.bfile}"> ${ r.bfile } </a> </div>
 			 	`
+			 	/*
+			 		<a href=" http get메소드방식 "> </a>
+			 	*/
 			 
 			html += `<a href="list.jsp"> <button type="button"> 목록보기 </button> </a>`
 			 // 3. 만일 본인글 인지 제어 [ 본인글이면 수정/삭제 표시함 / 아니면 표시안함 ]
@@ -74,6 +77,18 @@ function onUpdate( bno ){
 	
 	
 }
+
+/*
+
+	크롬(브라우저/유저)						톰캣(서버)				---- 업로드 폴더(서버PC)
+			/jspweb/FileDownLoad?filename=사진명.jsp
+					 ----request---->
+										1. filename 요청
+										2. filename파일을 업로드 폴더 경로 찾기
+										3. 다운로드 파일의 바이트를 읽어오기
+					<----request----
+
+*/
 
 
 

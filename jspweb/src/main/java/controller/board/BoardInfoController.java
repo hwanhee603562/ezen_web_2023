@@ -17,6 +17,7 @@ import model.dao.BoardDao;
 import model.dto.BoardDto;
 import model.dto.MemberDto;
 import model.dto.PageDto;
+import service.FileService;
 
 
 @WebServlet("/BoardInfoController")
@@ -186,6 +187,11 @@ public class BoardInfoController extends HttpServlet {
 		if( updateDto.getBfile() == null ) {
 			// 기존 첨부파일
 			updateDto.setBfile( BoardDao.getInstance().getBoard(bno).getBfile() );
+		} else {	// 만약에 수정할 첨부파일 있으면 기존 첨부파일은 서버업로드폴더에서 삭제
+			
+			String filename = BoardDao.getInstance().getBoard(bno).getBfile();
+			filename = request.getServletContext().getRealPath("/board/upload")+"/"+filename;
+			FileService.fileDelete(filename);
 		}
 		
 		boolean result = BoardDao.getInstance().onUpdate( updateDto );
@@ -201,15 +207,31 @@ public class BoardInfoController extends HttpServlet {
 		
 		// 1. 요청
 		int bno = Integer.parseInt(request.getParameter("bno"));
-
+			// 레코드 삭제 전 파일이름 꺼내기 [ 삭제 후 파일이름 호출이 불가능 ]
+		String filename = BoardDao.getInstance().getBoard(bno).getBfile();
+		
 		// 2. DAO
 		boolean result = BoardDao.getInstance().ondelete( bno );
+		
+			// 만일 게시물 삭제가 성공되면.. 서버에 업로드된 파일도 같이 삭제
+				// 즉, 게시물 삭제시 삭제된 게시물의 업로드파일도 같이 삭제
+		if( result ) {	// 게시물 삭제를 성공할 시
+			filename = request.getServletContext().getRealPath("/board/upload")+"/"+filename;
+			System.out.println("filename : "+filename);
+			FileService.fileDelete(filename);
+		}
+		
 		
 		// 3. 응답
 		response.setContentType("application/json; charset=UTF-8");
 		response.getWriter().print(result);
 	}
 
+	// 5. 파일 삭제
+	
+	
+	
+	
 }
 
 

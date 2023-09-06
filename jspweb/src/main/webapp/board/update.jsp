@@ -5,6 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	
+	<!-- 부트스트랩에서 만든 CSS 적용 -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<!-- 썸머노트 css 적용 - 부트스트랩v5 -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" rel="stylesheet">
+
 </head>
 
 	<link href="/jspweb/css/board/write.css" rel="stylesheet">
@@ -22,22 +28,28 @@
 							<option value="1"> 공지사항 </option>
 							<option value="2"> 자유게시판 </option>
 							<option value="3"> 노하우 </option>
-						</select>
-			제목 : <input type="text" name="btitle" class="btitle">
-			내용 : <textarea name="bcontent" class="bcontent"></textarea>
-			<div class="oldfile"></div>
-				첨부파일 : <input type="file" name="bfile" class="bfile">
+						</select> <br/>
+			제목 : <input type="text" name="btitle" class="btitle"> <br/>
+			<textarea id="summernote" name="bcontent" class="bcontent"></textarea> <br/>
+			<div class="oldfile"></div> <br/>
+				첨부파일 : <input type="file" name="bfile" class="bfile"> <br/>
 			 
 			<button onclick="onUpdate()" type="button"> 글수정 </button>
-			<a href="list.jsp"> 목록보기 </a>
+			<a href="list.jsp"><button> 목록보기 </button></a>
 			<button type="reset"> 다시쓰기 </button>
 		</form>
 	</div>
 	
+	<!-- 부트스트랩에서 만든 JS 적용 -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+	<!-- 썸머노트 js 적용 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"></script>
+	<!-- 썸머노트 한글적용  -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/lang/summernote-ko-KR.min.js"></script>
+	
+	
 	<script src="/jspweb/js/board/update.js" type="text/javascript"></script>
 
-	<!-- 최신 JQUERY 불러오기 : AJAX메소드 사용하기 위해 : JS가 외부로부터 통신하기 위해 -->
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	
 
 

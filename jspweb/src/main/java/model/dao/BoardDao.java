@@ -66,7 +66,6 @@ public class BoardDao extends Dao {
 	public ArrayList<BoardDto> getList( int bcno, int listsize, int startrow ){
 		
 		ArrayList<BoardDto> list = new ArrayList<>();
-		System.out.println( "listsize "+listsize );
 		try {
 			
 			String sql = "select b.*, m.mid, m.mimg, bc.bcname "

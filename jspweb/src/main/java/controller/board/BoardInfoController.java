@@ -57,13 +57,32 @@ public class BoardInfoController extends HttpServlet {
 			int totalpage = totalsize%listsize == 0 ? totalsize/listsize : totalsize/listsize+1;
 					// 게시물수 : 10, 페이지별 2개씩 출력 => 총페이지수 5[몫]
 					// 게시물수 : 20, 페이지별 3개씩 출력 => 총페이지수 6[몫] + 1(나머지)
+			// ---------------------- 5. 페이지번호버튼 시작번호, 마지막 번호
+				/*
+					페이지	시작		마지막		시작계산시[ int btnsize = 5; ]
+					1페이지	1		5			page*btnsize	1*5	=>	5
+					2		1		5			page*btnsize	2*5	=>	10
+					3		1		5			page*btnsize	3*5	=>	15
+					4		1		5			page*btnsize	4*5	=>	20
+					5		1		5			page*btnsize	5*5	=>	25
+					6		6		10			page*btnsize	6*5	=>	30
+				 */
 			
+				// 1. 페이지버튼 번호의 최대개수
+			int btnsize = 5;
+				// 2. 페이지버튼 번호의 시작번호
+			int startbtn = ((page-1)/btnsize)*btnsize+1;
+				// 3. 페이지버튼 번호의 마지막 번호
+			int endbtn = startbtn+btnsize;
+					// * 단 마지막번호는 총 페이지수 보다 커질 수 없음
+					// 만일 마지막번호가 총 페이지수보다 크면 총 페이지 수로 제한두기
+			if( endbtn >= totalpage ) endbtn = totalpage;
+			
+			// ---------------------- 6. pageDto 구성
 			ArrayList<BoardDto> result = BoardDao.getInstance().getList( bcno, listsize, startrow );
-			
-			
-			// ---------------------- 5. page
+
 			PageDto pageDto = new PageDto(
-				page, listsize, startrow, totalsize, totalpage, result); 
+				page, listsize, startrow, totalsize, totalpage, startbtn, endbtn, result); 
 			
 			// * java객체 --> js객체[JSON] 형식의 문자열로 변환
 			json =  objectMapper.writeValueAsString( pageDto );

@@ -95,7 +95,7 @@ function getList( page ){
 			html += `<button onclick="getList(${page-1})" type="button"> < </button>	<!-- 이전버튼 -->`;
 	
 				// B 페이지번호 버튼 [ * 페이지 개수만큼 반복 ]
-			for( let i=1; i<=r.totalpage; i++ ){
+			for( let i=r.startbtn; i<=r.endbtn; i++ ){
 				// 만일 현재페이지(page)와 i가 같으면 페이지와 일치하면 버튼태그에 class="selectpage"
 				html += `<button class="${ page == i ? 'selectpage' : '' }" onclick="getList(${i})" type="button"> ${i} </button>`
 			}

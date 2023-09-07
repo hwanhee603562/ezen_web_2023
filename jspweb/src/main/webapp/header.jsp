@@ -21,8 +21,8 @@
 		<ul class="mainmenu">	<!-- 본메뉴 -->
 			<li> <a href="http://192.168.17.17/jspweb/visitlog/visitlog.jsp"> 방문록 </a> </li>
 			<li> <a href="/jspweb/board/list.jsp"> 게시판 </a> </li>
-			<li> <a href="#"> 기능2 </a> </li>
-			<li> <a href="#"> 기능3 </a> </li>
+			<li> <a href="/jspweb/datago/datago.jsp"> 공공데이터 </a> </li>
+			<li> <a href="/jspweb/chatting/chatting.jsp"> 채팅 </a> </li>
 			<li> <a href="/jspweb/가계부/accountBook.jsp"> (과1):가계부 </a> </li>
 			<li> <a href="/jspweb/library/library.jsp"> (과2):도서관열람실 </a> </li>
 			<li> <a href="/jspweb/hrm/hrm.jsp"> (과3):직원관리 </a> </li>

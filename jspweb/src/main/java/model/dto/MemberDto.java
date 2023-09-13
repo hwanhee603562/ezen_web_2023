@@ -4,11 +4,11 @@ public class MemberDto {
 	
 	// 필드
 		// 1-1 DB 있는 필드
-	int mno;
-	String mid;
-	String mpwd;
-	String memail;
-	String mimg;
+	private int mno;
+	private String mid;
+	private String mpwd;
+	private String memail;
+	private String mimg;
 	
 	// 1-2 DB 없는 필드
 	private String loginDateTime;	// 로그인 시간

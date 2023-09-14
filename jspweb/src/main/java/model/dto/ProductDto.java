@@ -4,17 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ProductDto {
-	private int pcno;
-	private String pcname;
-	private int pno	;
-	private String pname;
-	private String pcontent; 
-	private int pprice;
-	private int pstate;
-	private String pdate;
-	private String plat;
-	private String plng;	
-	private int mno;
+	private int pcno;			// 카테고리번호 pk
+	private String pcname;		// 카테고리명
+	private int pno	;			// 제품번호 pk
+	private String pname;		// 제품명
+	private String pcontent; 	// 제품내용
+	private int pprice;			// 가격
+	private int pstate;			// 0 : 판매중(기본값), 1: 거래중, 2:판매대기, 3: 판매완료
+	private String pdate;		// 등록일자
+	private String plat;		// 위도
+	private String plng;		// 경도
+	private int mno;			// 판매자pk번호
 	
 	//  키:이미지번호 / 값: 이미지이름
 	Map< Integer , String > imgList = new HashMap<>(); // 제품별 여러개 이미지 
@@ -46,14 +46,14 @@ public class ProductDto {
 	public ProductDto(int pcno, String pname, String pcontent, int pprice, String plat, String plng, int mno,
 			Map<Integer, String> imgList) {
 		super();
-		this.pcno = pcno;
-		this.pname = pname;
-		this.pcontent = pcontent;
-		this.pprice = pprice;
-		this.plat = plat;
-		this.plng = plng;
-		this.mno = mno;
-		this.imgList = imgList;
+		this.pcno = pcno;			// 카테고리번호pk
+		this.pname = pname;			// 제품명
+		this.pcontent = pcontent;	// 제품내용
+		this.pprice = pprice;		// 가격
+		this.plat = plat;			// 위도
+		this.plng = plng;			// 경도
+		this.mno = mno;				// 판매자번호
+		this.imgList = imgList;		// 첨부이미지들
 	}
 
 	public int getPcno() {

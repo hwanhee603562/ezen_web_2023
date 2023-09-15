@@ -4,7 +4,7 @@ import java.util.TreeMap;
 
 public class Ex2_예제 {
 	public static void main(String[] args) {
-		
+		 
 		// 1. TreeMap 객체 생성
 		TreeMap<String, Integer> treeMap = new TreeMap<>();
 		

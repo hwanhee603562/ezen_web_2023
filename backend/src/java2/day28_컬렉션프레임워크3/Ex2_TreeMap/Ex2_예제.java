@@ -7,7 +7,7 @@ public class Ex2_예제 {
 		 
 		// 1. TreeMap 객체 생성
 		TreeMap<String, Integer> treeMap = new TreeMap<>();
-		
+		 
 		// 2. 무작위 엔트리<키, 값> 저장
 		treeMap.put("apple", 10);
 		treeMap.put("forever", 60);

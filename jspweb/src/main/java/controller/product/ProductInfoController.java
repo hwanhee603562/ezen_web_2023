@@ -1,6 +1,7 @@
 package controller.product;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import model.dao.ProductDao;
 import model.dto.MemberDto;
 import model.dto.ProductDto;
@@ -29,7 +32,7 @@ public class ProductInfoController extends HttpServlet {
     }
     // 1. 제품 등록 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		// * commons.jar 이용한 업로드 구현 
 		// commons-io.jar ,  commons-fileupload.jar 빌드 필요!!
 		
@@ -114,6 +117,44 @@ public class ProductInfoController extends HttpServlet {
 	}
 	// 2. 제품 조회 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String type = request.getParameter("type");
+		
+		String json = "";
+		ObjectMapper mapper = new ObjectMapper();
+		
+		
+		if( type.equals("findByTop") ) {			// 1. n개의 제품들을 최신순으로 출력하는 함수
+			
+			int count = Integer.parseInt(request.getParameter("count"));
+			List<ProductDto> result = ProductDao.getInstance().findByTop( count );
+			json = mapper.writeValueAsString(result);
+			
+		} else if( type.equals("findByLatLng") ) {	// 2. 현재 카카오지도 내 보고있는 동서남북 기준 내 제품들을 출력하는 함수
+			
+			String east = request.getParameter("count");
+			String west = request.getParameter("west");
+			String south = request.getParameter("south");
+			String north = request.getParameter("north");
+			
+			List<ProductDto> result = ProductDao.getInstance().findByLatLng( east, west, south, north );
+			json = mapper.writeValueAsString(result);
+			
+		} else if( type.equals("findByPno") ) {		// 3. 선택된 제품번호에 해당하는 제품 출력하는 함수
+			
+			int pno = Integer.parseInt(request.getParameter("pno"));
+			ProductDto result = ProductDao.getInstance().findByPno( pno );
+			json = mapper.writeValueAsString(result);
+			
+		} else if( type.equals("findByAll") ) {		// 4. 모든 제품들을 출력하는 함수
+			
+			List<ProductDto> result = ProductDao.getInstance().findByAll();
+			json = mapper.writeValueAsString(result);
+			
+		}
+		
+		response.setCharacterEncoding("application/json;charset=UTF-8");
+		response.getWriter().print( json );
+		
 	}
 	// 3. 제품 수정 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -9,7 +9,7 @@ function checkIn() {
    }
    let name = document.querySelector('.name');
    let phone = document.querySelector('.phone');
-   
+    
    if(name.value == '' || phone.value == '') {
       alert('빈칸을 모두 채워주시길 바랍니다.');
       return;

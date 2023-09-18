@@ -24,6 +24,7 @@
 			<li> <a href="/jspweb/datago/datago.jsp"> 공공데이터 </a> </li>
 			<li> <a href="/jspweb/chatting/chatting.jsp"> 채팅 </a> </li>
 			<li> <a href="/jspweb/product/register.jsp"> 제품등록 </a> </li>
+			<li> <a href="/jspweb/product/list.jsp"> 제품찾기 </a> </li>
 			<li> <a href="/jspweb/가계부/accountBook.jsp"> (과1):가계부 </a> </li>
 			<li> <a href="/jspweb/library/library.jsp"> (과2):도서관열람실 </a> </li>
 			<li> <a href="/jspweb/hrm/hrm.jsp"> (과3):직원관리 </a> </li>

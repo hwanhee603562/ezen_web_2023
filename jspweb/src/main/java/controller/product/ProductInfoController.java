@@ -131,7 +131,7 @@ public class ProductInfoController extends HttpServlet {
 			
 		} else if( type.equals("findByLatLng") ) {	// 2. 현재 카카오지도 내 보고있는 동서남북 기준 내 제품들을 출력하는 함수
 			
-			String east = request.getParameter("count");
+			String east = request.getParameter("east");
 			String west = request.getParameter("west");
 			String south = request.getParameter("south");
 			String north = request.getParameter("north");
@@ -152,7 +152,7 @@ public class ProductInfoController extends HttpServlet {
 			
 		}
 		
-		response.setCharacterEncoding("application/json;charset=UTF-8");
+		response.setContentType("application/json;charset=UTF-8");
 		response.getWriter().print( json );
 		
 	}

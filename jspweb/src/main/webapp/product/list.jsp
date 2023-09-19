@@ -6,6 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+	<!-- 부트스트랩에서 만든 CSS 적용 -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+
 	<link href="/jspweb/css/product/list.css" rel="stylesheet">
 	
 	
@@ -21,7 +25,10 @@
 		<div id="map"></div>
 		
 		<!-- 사이드바 구역 -->
-		<div class="sidebar">  </div>
+		<div class="sidebar">  
+		
+			
+		</div>
 		
 	</div>
 	

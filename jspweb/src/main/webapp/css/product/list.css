@@ -23,6 +23,36 @@ html , body{
 #map{ 
 	width: 80%; 
 }
+/* 사이드바 스크롤(위에 -ms-overflow-style:none으로 인해 출력x)은 출력은 하지 않고 기능만 작동 */
 .sidebar{ 
 	width: 20%;
+	height: 800px;
+	overflow-y: scroll;
 }
+.card{
+	margin: 10px;
+	height: 120px !important;
+}
+.card img{
+	object-fit: cover;
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

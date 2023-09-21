@@ -210,6 +210,9 @@ function fileListPrint(){
 					<span> ${fsize} </span>
 					<span> <button onclick="fileDelete(${i})" type="button"> 삭제 </button> </span>
 				</div>`
+				
+		console.log('파일명 혹은 경로 확인')
+		console.log(fname)
 	})
 	
 	// 3. [대입] 

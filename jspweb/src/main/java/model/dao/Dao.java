@@ -17,6 +17,6 @@ public class Dao {
 			this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jspweb"
 							, "root", "1234");
 			System.out.println("안내] DB연동성공");
-		}catch (Exception e) {System.out.println("경고] DB연동성공실패 : "+e);}
+		} catch (Exception e) {System.out.println("경고] DB연동성공실패 : "+e);}
 	}
 }

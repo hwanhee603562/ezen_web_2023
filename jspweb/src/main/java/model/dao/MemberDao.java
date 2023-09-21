@@ -1,8 +1,11 @@
 package model.dao;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.dto.MemberDto;
+import model.dto.MpointDto;
 
 public class MemberDao extends Dao {
 	
@@ -139,6 +142,83 @@ public class MemberDao extends Dao {
 		
 		
 		return false;
+	}
+	
+	
+	// 9. 포인트 사용[증감/차감]에 대한 함수
+		// 매개변수 : mpno 식별번호, mno 회원번호, mpamount 포인트수, mpcomment 지급내역
+	public boolean setPoint( MpointDto dto ) {
+		
+		try {
+			String sql = "insert into mpoint( mpno, mno, mpamount, mpcomment )"
+						+" values(?, ?, ?, ?)";
+			
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, dto.getMpno());
+			ps.setInt(2, dto.getMno());
+			ps.setLong(3, dto.getMpamount());
+			ps.setString(4, dto.getMpcomment());
+			int count = ps.executeUpdate();
+			
+			if( count == 1 ) 	return true;
+			
+		} catch (Exception e) {
+			e.getStackTrace();
+		}
+		
+		return false;
+	}
+	
+	// 10. 내 포인트 확인 [ 로그인한 사람의 현재 포인트 합계 ]
+	public long getPoint( int mno ) {
+		
+		try {
+			// sum( 필드명 )	: 총합계를 계산할 필드명 인수로 대입
+			String sql = "select sum( mpamount ) from mpoint where mno = ?";
+			
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, mno);
+			rs = ps.executeQuery();
+			if( rs.next() ) return rs.getInt(1);
+			
+		} catch (Exception e) {
+			e.getStackTrace();
+		}
+		
+		return 0;
+	}
+	
+	
+	// 11. 내 포인트 사용 내역 출력하는 함수
+	public List<MpointDto> getPointList( int mno ) {
+		
+		try {
+			List<MpointDto> list = new ArrayList<>();
+			
+			String sql = "select * from mpoint where mno = ?";
+			
+			ps = conn.prepareStatement(sql);
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, mno);
+			rs = ps.executeQuery();
+			
+			while( rs.next() ) {
+				MpointDto dto = new MpointDto( 
+					rs.getString(1),
+					rs.getInt(2),
+					rs.getLong(3),
+					rs.getString(4),
+					rs.getString(5)
+				);
+				list.add(dto);
+			}
+			return list;
+			
+		} catch (Exception e) {
+			e.getStackTrace();
+		}
+		
+		return null;
 	}
 	
 	

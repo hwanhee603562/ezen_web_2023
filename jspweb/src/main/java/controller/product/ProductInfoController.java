@@ -85,7 +85,7 @@ public class ProductInfoController extends HttpServlet {
 					// 7. 업로드 된 파일명을 Map에 저장 [ -DB에 저장할려고  ]
 					i++;
 					imgList.put( i , filename ); // 저장시에는 이미지번호가 필요 없음
-				}
+				}	
 			}
 			
 			// 현재 로그인한 회원번호 호출

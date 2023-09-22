@@ -87,7 +87,7 @@ public class ProductInfoController extends HttpServlet {
 					imgList.put( i , filename ); // 저장시에는 이미지번호가 필요 없음
 				}	
 			}
-			
+			 
 			// 현재 로그인한 회원번호 호출
 			Object object = request.getSession().getAttribute("loginDto");
 			MemberDto memberDto = (MemberDto) object;

@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class Dao {
-	
+		
 	public Connection conn;			// DB연동 객체
 	public PreparedStatement ps; 	// 연동된 DB에서 SQL조작( SQL매개변수대입, SQL실행/취소 ) 하는 객체 
 	public ResultSet rs;			// SQL 조작 결과(검색결과)를 가져오는 객체 
